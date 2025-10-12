@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "title": "Australia 2026",
+    "subtitle": "Il tuo album fotografico collaborativo per l'avventura di una vita",
+    "description": "Condividi ricordi, esplora insieme e rivivi ogni momento del tuo viaggio australiano con gli amici"
+  },
+  "cta": {
+    "viewGallery": "Vedi Galleria",
+    "timeline": "Cronologia",
+    "exploreMap": "Esplora Mappa"
+  },
+  "features": {
+    "photos": {
+      "title": "Condividi Foto",
+      "description": "Carica e organizza i tuoi momenti preferiti del viaggio. Crea album per diverse località ed esperienze."
+    },
+    "map": {
+      "title": "Mappa Interattiva",
+      "description": "Guarda dove è stata scattata ogni foto su una mappa interattiva. Esplora visivamente il tuo viaggio attraverso l'Australia."
+    },
+    "timeline": {
+      "title": "Vista Cronologia",
+      "description": "Rivivi la tua avventura cronologicamente. Guarda come si è svolto il tuo viaggio giorno per giorno."
+    }
+  },
+  "gettingStarted": {
+    "title": "Pronto per Iniziare?",
+    "description": "Accedi con Google per accedere all'album condiviso e iniziare a caricare le tue foto"
+  },
+  "footer": {
+    "title": "Album Condiviso Australia 2026",
+    "description": "Una piattaforma di condivisione foto collaborativa per amici che viaggiano insieme"
+  }
+}

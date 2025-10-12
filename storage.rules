@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /photos/{userId}/{filename} {
+      // Anyone can read photos
+      allow read: if true;
+
+      // Only authenticated users can upload to their own folder
+      // Max 10MB, images only
+      allow create: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.size < 10 * 1024 * 1024
+                    && request.resource.contentType.matches('image/.*');
+
+      // Only the owner can delete their photos
+      allow delete: if request.auth != null
+                    && request.auth.uid == userId;
+    }
+  }
+}

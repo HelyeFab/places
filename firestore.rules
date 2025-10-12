@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Photos collection
+    match /photos/{photoId} {
+      // Allow read if:
+      // - Photo has no visibility field (legacy data - allow for now)
+      // - Photo is public, OR
+      // - Photo is "friends" and user is authenticated, OR
+      // - User is the owner
+      allow read: if !('visibility' in resource.data)
+                  || resource.data.visibility == "public"
+                  || (request.auth != null && resource.data.visibility == "friends")
+                  || (request.auth != null && request.auth.uid == resource.data.userId);
+
+      // Allow create if authenticated and creating for self
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+
+      // Allow update/delete only by owner
+      allow update, delete: if request.auth != null
+                             && request.auth.uid == resource.data.userId;
+
+      // Comments subcollection (Phase 3)
+      match /comments/{commentId} {
+        // Anyone can read comments
+        allow read: if true;
+
+        // Authenticated users can create comments (must set their own userId)
+        allow create: if request.auth != null
+                      && request.resource.data.userId == request.auth.uid;
+
+        // Users can delete their own comments
+        allow delete: if request.auth != null
+                      && request.auth.uid == resource.data.userId;
+      }
+
+      // Reactions subcollection (Phase 3)
+      match /reactions/{userId} {
+        // Anyone can read reactions
+        allow read: if true;
+
+        // Users can only write their own reactions
+        allow write: if request.auth != null && userId == request.auth.uid;
+      }
+    }
+
+    // Albums collection
+    match /albums/{albumId} {
+      // Anyone can read albums
+      allow read: if true;
+
+      // Only authenticated users can create albums for themselves
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+
+      // Only owner can update/delete
+      allow update, delete: if request.auth != null
+                             && request.auth.uid == resource.data.userId;
+    }
+  }
+}

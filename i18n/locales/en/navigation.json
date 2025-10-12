@@ -1,0 +1,14 @@
+{
+  "brand": "Australia 2026",
+  "brandShort": "AU 2026",
+  "gallery": "Gallery",
+  "albums": "Albums",
+  "map": "Map",
+  "timeline": "Timeline",
+  "newAlbum": "New Album",
+  "upload": "Upload",
+  "language": "Language",
+  "signOut": "Sign Out",
+  "signedOut": "Successfully signed out",
+  "signOutError": "Error signing out"
+}

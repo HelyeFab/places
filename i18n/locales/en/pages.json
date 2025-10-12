@@ -1,0 +1,22 @@
+{
+  "gallery": {
+    "title": "Photo Gallery",
+    "description": "Gallery view will be implemented in Phase 2"
+  },
+  "map": {
+    "title": "Map View",
+    "description": "Map view will be implemented in Phase 2"
+  },
+  "timeline": {
+    "title": "Timeline",
+    "description": "Timeline view will be implemented in Phase 2"
+  },
+  "upload": {
+    "title": "Upload Photos",
+    "description": "Upload functionality will be implemented in Phase 2"
+  },
+  "newAlbum": {
+    "title": "Create New Album",
+    "description": "Album creation will be implemented in Phase 2"
+  }
+}

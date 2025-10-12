@@ -1,0 +1,22 @@
+{
+  "gallery": {
+    "title": "Galleria Foto",
+    "description": "La vista galleria verrà implementata nella Fase 2"
+  },
+  "map": {
+    "title": "Vista Mappa",
+    "description": "La vista mappa verrà implementata nella Fase 2"
+  },
+  "timeline": {
+    "title": "Cronologia",
+    "description": "La vista cronologia verrà implementata nella Fase 2"
+  },
+  "upload": {
+    "title": "Carica Foto",
+    "description": "La funzionalità di caricamento verrà implementata nella Fase 2"
+  },
+  "newAlbum": {
+    "title": "Crea Nuovo Album",
+    "description": "La creazione di album verrà implementata nella Fase 2"
+  }
+}
