@@ -29,7 +29,7 @@ export default function AuthButton() {
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-2 border-theme-border-hover border-t-theme-accent-500 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -53,13 +53,13 @@ export default function AuthButton() {
               className="w-8 h-8 rounded-full border-2 border-white shadow-sm"
             />
           )}
-          <span className="text-sm font-medium text-gray-700 hidden sm:inline">
+          <span className="text-sm font-medium text-theme-text-primary hidden sm:inline">
             {user.displayName}
           </span>
         </div>
         <button
           onClick={handleSignOut}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-4 py-2 text-sm font-medium text-theme-text-primary bg-theme-bg-primary border border-theme-border-hover rounded-lg hover:bg-theme-bg-secondary transition-colors"
         >
           {t('signOut')}
         </button>
@@ -70,7 +70,7 @@ export default function AuthButton() {
   return (
     <button
       onClick={handleSignIn}
-      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors shadow-sm"
     >
       <svg className="w-5 h-5" viewBox="0 0 24 24">
         <path

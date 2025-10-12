@@ -135,8 +135,8 @@ export default function AlbumDetailPage() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="ml-3 text-gray-600">{t('loading')}</p>
+          <div className="w-8 h-8 border-4 border-theme-accent-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="ml-3 text-theme-text-secondary">{t('loading')}</p>
         </div>
       </div>
     );
@@ -150,7 +150,7 @@ export default function AlbumDetailPage() {
         </div>
         <Link
           href="/albums"
-          className="inline-flex items-center gap-2 mt-4 text-blue-600 hover:text-blue-700"
+          className="inline-flex items-center gap-2 mt-4 text-theme-accent-600 hover:text-theme-accent-700"
         >
           <ArrowLeft className="w-4 h-4" />
           {t('backToAlbums')}
@@ -165,7 +165,7 @@ export default function AlbumDetailPage() {
       <div className="mb-8">
         <Link
           href="/albums"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4"
+          className="inline-flex items-center gap-2 text-theme-accent-600 hover:text-theme-accent-700 mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
           {t('backToAlbums')}
@@ -173,11 +173,11 @@ export default function AlbumDetailPage() {
 
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">{album.title}</h1>
+            <h1 className="text-4xl font-bold text-theme-text-primary mb-2">{album.title}</h1>
             {album.description && (
-              <p className="text-lg text-gray-600 mb-3">{album.description}</p>
+              <p className="text-lg text-theme-text-secondary mb-3">{album.description}</p>
             )}
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-theme-text-secondary">
               {t('photoCount', { count: photos.length })} • {album.userName}
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function AlbumDetailPage() {
             <div className="flex items-center gap-2">
               <Link
                 href={`/upload?albumId=${albumId}`}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors"
               >
                 <Upload className="w-4 h-4" />
                 {t('uploadToAlbum')}
@@ -196,7 +196,16 @@ export default function AlbumDetailPage() {
                 <button
                   onClick={() => setShowDeleteModal(true)}
                   disabled={deleting}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    backgroundColor: deleting ? 'rgb(var(--danger-800))' : 'rgb(var(--danger-600))'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!deleting) e.currentTarget.style.backgroundColor = 'rgb(var(--danger-700))';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!deleting) e.currentTarget.style.backgroundColor = 'rgb(var(--danger-600))';
+                  }}
                 >
                   <Trash2 className="w-4 h-4" />
                   {deleting ? 'Deleting...' : 'Delete Album'}
@@ -210,14 +219,14 @@ export default function AlbumDetailPage() {
       {/* Photos Grid */}
       {photos.length === 0 ? (
         <div className="text-center py-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-            <Upload className="w-8 h-8 text-gray-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-theme-bg-tertiary rounded-full mb-4">
+            <Upload className="w-8 h-8 text-theme-text-tertiary" />
           </div>
-          <p className="text-gray-500 text-lg mb-4">{t('noPhotos')}</p>
+          <p className="text-theme-text-secondary text-lg mb-4">{t('noPhotos')}</p>
           {user && (
             <Link
               href={`/upload?albumId=${albumId}`}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors"
             >
               <Upload className="w-4 h-4" />
               {t('addPhotos')}
@@ -230,7 +239,7 @@ export default function AlbumDetailPage() {
             <Link
               key={photo.id}
               href={`/photos/${photo.id}`}
-              className="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="group relative aspect-square bg-theme-bg-tertiary rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
             >
               <img
                 src={photo.url}
@@ -248,7 +257,7 @@ export default function AlbumDetailPage() {
               {/* Visibility badge */}
               {photo.visibility !== 'public' && (
                 <div className="absolute top-2 right-2">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm rounded-full">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-theme-bg-primary/90 backdrop-blur-sm rounded-full">
                     {photo.visibility === 'friends' ? '👥' : '🔒'}
                   </span>
                 </div>

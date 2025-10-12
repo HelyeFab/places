@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+    <div className="flex items-center gap-1 bg-theme-bg-secondary rounded-lg p-1">
       {locales.map((loc) => (
         <button
           key={loc}
@@ -31,8 +31,8 @@ export default function LanguageSwitcher() {
           className={`
             px-3 py-1.5 rounded-md text-sm font-medium transition-all
             ${locale === loc
-              ? 'bg-white text-blue-600 shadow-sm'
-              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+              ? 'bg-theme-bg-primary text-theme-accent-600 shadow-sm'
+              : 'text-theme-text-secondary hover:text-theme-text-primary hover:bg-theme-bg-tertiary'
             }
             ${isPending ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
             flex items-center gap-1.5

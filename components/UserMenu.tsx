@@ -54,7 +54,7 @@ export default function UserMenu({ user, currentLocale }: UserMenuProps) {
           className="rounded-full"
         />
       ) : (
-        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+        <div className="w-8 h-8 bg-theme-accent-600 rounded-full flex items-center justify-center">
           <User className="w-5 h-5 text-white" />
         </div>
       )}
@@ -64,9 +64,9 @@ export default function UserMenu({ user, currentLocale }: UserMenuProps) {
   return (
     <Dropdown trigger={trigger} align="right">
       {/* User Info */}
-      <div className="px-4 py-3 border-b border-gray-200">
-        <p className="text-sm font-medium text-gray-900">{user.displayName || 'User'}</p>
-        <p className="text-xs text-gray-500 truncate">{user.email}</p>
+      <div className="px-4 py-3 border-b border-theme-border">
+        <p className="text-sm font-medium text-theme-text-primary">{user.displayName || 'User'}</p>
+        <p className="text-xs text-theme-text-secondary truncate">{user.email}</p>
       </div>
 
       {/* Language Selection */}
@@ -78,7 +78,7 @@ export default function UserMenu({ user, currentLocale }: UserMenuProps) {
         <div className="flex items-center justify-between w-full">
           <span>English</span>
           {currentLocale === 'en' && (
-            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+            <span className="w-2 h-2 bg-theme-accent-600 rounded-full"></span>
           )}
         </div>
       </DropdownItem>
@@ -89,7 +89,7 @@ export default function UserMenu({ user, currentLocale }: UserMenuProps) {
         <div className="flex items-center justify-between w-full">
           <span>Italiano</span>
           {currentLocale === 'it' && (
-            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+            <span className="w-2 h-2 bg-theme-accent-600 rounded-full"></span>
           )}
         </div>
       </DropdownItem>

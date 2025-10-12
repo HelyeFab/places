@@ -122,8 +122,8 @@ export default function TimelinePage() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="ml-3 text-gray-600">Loading timeline...</p>
+          <div className="w-8 h-8 border-4 border-theme-accent-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="ml-3 text-theme-text-secondary">Loading timeline...</p>
         </div>
       </div>
     );
@@ -133,16 +133,16 @@ export default function TimelinePage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('title')}</h1>
-        <p className="text-lg text-gray-600">{t('description')}</p>
+        <h1 className="text-4xl font-bold text-theme-text-primary mb-2">{t('title')}</h1>
+        <p className="text-lg text-theme-text-secondary">{t('description')}</p>
       </div>
 
       {/* Timeline */}
       {groupedPhotos.length === 0 ? (
         <div className="text-center py-16">
-          <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <p className="text-xl text-gray-500">No photos yet</p>
-          <p className="text-sm text-gray-400 mt-2">Upload photos to see your timeline</p>
+          <Calendar className="w-16 h-16 text-theme-text-tertiary mx-auto mb-4" />
+          <p className="text-xl text-theme-text-secondary">No photos yet</p>
+          <p className="text-sm text-theme-text-tertiary mt-2">Upload photos to see your timeline</p>
         </div>
       ) : (
         <div className="space-y-12">
@@ -150,11 +150,11 @@ export default function TimelinePage() {
             <section key={dayKey}>
               {/* Date Header */}
               <div className="flex items-center gap-3 mb-4">
-                <Calendar className="w-5 h-5 text-blue-600" />
-                <h2 className="text-2xl font-semibold text-gray-900">
+                <Calendar className="w-5 h-5 text-theme-accent-600" />
+                <h2 className="text-2xl font-semibold text-theme-text-primary">
                   {getDisplayDate(dayKey)}
                 </h2>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-theme-text-secondary">
                   ({dayPhotos.length} {dayPhotos.length === 1 ? 'photo' : 'photos'})
                 </span>
               </div>
@@ -165,7 +165,7 @@ export default function TimelinePage() {
                   <Link
                     key={photo.id}
                     href={`/photos/${photo.id}`}
-                    className="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                    className="group relative aspect-square bg-theme-bg-tertiary rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
                   >
                     <img
                       src={photo.url}
@@ -183,7 +183,7 @@ export default function TimelinePage() {
                     {/* Place Badge */}
                     {photo.place && (
                       <div className="absolute top-2 left-2">
-                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm rounded-full">
+                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-theme-bg-primary/90 backdrop-blur-sm rounded-full">
                           📍 {photo.place}
                         </span>
                       </div>
@@ -192,7 +192,7 @@ export default function TimelinePage() {
                     {/* Visibility Badge */}
                     {photo.visibility !== 'public' && (
                       <div className="absolute top-2 right-2">
-                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm rounded-full">
+                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-theme-bg-primary/90 backdrop-blur-sm rounded-full">
                           {photo.visibility === 'friends' ? '👥' : '🔒'}
                         </span>
                       </div>

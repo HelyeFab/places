@@ -67,12 +67,12 @@ export default function AlbumsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">{t('title')}</h1>
+        <h1 className="text-4xl font-bold text-theme-text-primary">{t('title')}</h1>
 
         {user && (
           <Link
             href="/albums/new"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors"
           >
             <Plus className="w-4 h-4" />
             {t('newAlbum')}
@@ -87,8 +87,8 @@ export default function AlbumsPage() {
             onClick={() => setView('all')}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
               view === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-theme-accent-600 text-white'
+                : 'bg-theme-bg-tertiary text-theme-text-primary hover:bg-gray-200'
             }`}
           >
             {t('allAlbums')} ({allAlbums.length})
@@ -97,8 +97,8 @@ export default function AlbumsPage() {
             onClick={() => setView('mine')}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
               view === 'mine'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-theme-accent-600 text-white'
+                : 'bg-theme-bg-tertiary text-theme-text-primary hover:bg-gray-200'
             }`}
           >
             {t('myAlbums')} ({myAlbums.length})
@@ -109,22 +109,22 @@ export default function AlbumsPage() {
       {/* Loading State */}
       {loading && (
         <div className="flex items-center justify-center py-12">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="ml-3 text-gray-600">{t('loading')}</p>
+          <div className="w-8 h-8 border-4 border-theme-accent-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="ml-3 text-theme-text-secondary">{t('loading')}</p>
         </div>
       )}
 
       {/* Empty State */}
       {!loading && displayedAlbums.length === 0 && (
         <div className="text-center py-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-            <ImageIcon className="w-8 h-8 text-gray-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-theme-bg-tertiary rounded-full mb-4">
+            <ImageIcon className="w-8 h-8 text-theme-text-tertiary" />
           </div>
-          <p className="text-gray-500 text-lg mb-4">{t('emptyAlbum')}</p>
+          <p className="text-theme-text-secondary text-lg mb-4">{t('emptyAlbum')}</p>
           {user && (
             <Link
               href="/albums/new"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors"
             >
               <Plus className="w-4 h-4" />
               {t('createAlbum')}
@@ -140,10 +140,10 @@ export default function AlbumsPage() {
             <Link
               key={album.id}
               href={`/albums/${album.id}`}
-              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden"
+              className="group bg-theme-bg-primary rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden"
             >
               {/* Cover Photo */}
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 relative overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-theme-accent-100 to-theme-accent-200 relative overflow-hidden">
                 {album.coverPhotoUrl ? (
                   <img
                     src={album.coverPhotoUrl}
@@ -152,20 +152,20 @@ export default function AlbumsPage() {
                   />
                 ) : (
                   <div className="flex items-center justify-center w-full h-full">
-                    <ImageIcon className="w-12 h-12 text-gray-400" />
+                    <ImageIcon className="w-12 h-12 text-theme-text-tertiary" />
                   </div>
                 )}
               </div>
 
               {/* Album Info */}
               <div className="p-4">
-                <h3 className="font-semibold text-gray-900 text-lg mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-semibold text-theme-text-primary text-lg mb-1 line-clamp-1 group-hover:text-theme-accent-600 transition-colors">
                   {album.title}
                 </h3>
                 {album.description && (
-                  <p className="text-sm text-gray-600 mb-2 line-clamp-2">{album.description}</p>
+                  <p className="text-sm text-theme-text-secondary mb-2 line-clamp-2">{album.description}</p>
                 )}
-                <div className="flex items-center justify-between text-xs text-gray-500">
+                <div className="flex items-center justify-between text-xs text-theme-text-secondary">
                   <span>{t('photoCount', { count: album.photoCount })}</span>
                   <span>{album.userName}</span>
                 </div>

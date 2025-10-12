@@ -32,10 +32,10 @@ export default function GoogleAuthButton() {
       <button
         onClick={handleSignIn}
         disabled={loading}
-        className="flex items-center justify-center gap-3 w-full px-4 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center justify-center gap-3 w-full px-4 py-3 text-sm font-medium text-theme-text-primary bg-theme-bg-primary border border-theme-border-hover rounded-lg hover:bg-theme-bg-secondary transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? (
-          <div className="w-5 h-5 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-2 border-theme-border-hover border-t-theme-accent-500 rounded-full animate-spin"></div>
         ) : (
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path

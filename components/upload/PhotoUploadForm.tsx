@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
-interface Album {
+interface AlbumOption {
   id: string;
   title: string;
 }
@@ -35,7 +35,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
   const [longitude, setLongitude] = useState('');
   const [visibility, setVisibility] = useState<'public' | 'friends' | 'hidden'>('public');
   const [albumId, setAlbumId] = useState<string>(preselectedAlbumId || '');
-  const [albums, setAlbums] = useState<Album[]>([]);
+  const [albums, setAlbums] = useState<AlbumOption[]>([]);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState<{ [key: string]: number }>({});
   const [uploadedCount, setUploadedCount] = useState(0);
@@ -161,6 +161,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
               lat,
               lng,
               albumId: albumId || null,
+              upvoteCount: 0,
               createdAt: serverTimestamp(),
             });
 
@@ -269,13 +270,13 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* File Upload */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-theme-text-primary mb-2">
           {t('selectPhoto')} {selectedFiles.length > 0 && `(${selectedFiles.length} ${t('filesSelected')})`}
         </label>
         <div className="flex items-center gap-4">
           <label
             htmlFor="photo-upload"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer transition-colors"
+            className="px-4 py-2 bg-theme-accent-600 text-white rounded-lg hover:bg-theme-accent-700 cursor-pointer transition-colors"
           >
             {selectedFiles.length > 0 ? t('changePhoto') : t('selectPhoto')}
           </label>
@@ -295,7 +296,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
       {previews.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {previews.map((preview, index) => (
-            <div key={index} className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+            <div key={index} className="relative aspect-square bg-theme-bg-tertiary rounded-lg overflow-hidden">
               <Image
                 src={preview}
                 alt={`Preview ${index + 1}`}
@@ -315,7 +316,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
 
       {/* Caption */}
       <div>
-        <label htmlFor="caption" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="caption" className="block text-sm font-medium text-theme-text-primary mb-1">
           {t('caption')}
         </label>
         <textarea
@@ -324,14 +325,14 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
           onChange={(e) => setCaption(e.target.value)}
           placeholder={t('captionPlaceholder')}
           rows={3}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
           disabled={uploading}
         />
       </div>
 
       {/* Tags */}
       <div>
-        <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="tags" className="block text-sm font-medium text-theme-text-primary mb-1">
           {t('tags')}
         </label>
         <input
@@ -340,14 +341,14 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           placeholder={t('tagsPlaceholder')}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
           disabled={uploading}
         />
       </div>
 
       {/* Location */}
       <div>
-        <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="location" className="block text-sm font-medium text-theme-text-primary mb-1">
           {t('location')}
         </label>
         <input
@@ -356,7 +357,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder={t('locationPlaceholder')}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
           disabled={uploading}
         />
       </div>
@@ -364,7 +365,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
       {/* Latitude and Longitude */}
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="latitude" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="latitude" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('latitude')}
           </label>
           <input
@@ -373,12 +374,12 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
             value={latitude}
             onChange={(e) => setLatitude(e.target.value)}
             placeholder={t('latitudePlaceholder')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={uploading}
           />
         </div>
         <div>
-          <label htmlFor="longitude" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="longitude" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('longitude')}
           </label>
           <input
@@ -387,7 +388,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
             value={longitude}
             onChange={(e) => setLongitude(e.target.value)}
             placeholder={t('longitudePlaceholder')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={uploading}
           />
         </div>
@@ -395,14 +396,14 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
 
       {/* Visibility */}
       <div>
-        <label htmlFor="visibility" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="visibility" className="block text-sm font-medium text-theme-text-primary mb-1">
           {t('visibility')}
         </label>
         <select
           id="visibility"
           value={visibility}
           onChange={(e) => setVisibility(e.target.value as 'public' | 'friends' | 'hidden')}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
           disabled={uploading}
         >
           <option value="public">{t('visibilityPublic')}</option>
@@ -413,14 +414,14 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
 
       {/* Album Selection */}
       <div>
-        <label htmlFor="album" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="album" className="block text-sm font-medium text-theme-text-primary mb-1">
           {t('album')}
         </label>
         <select
           id="album"
           value={albumId}
           onChange={(e) => setAlbumId(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
           disabled={uploading}
         >
           <option value="">{t('albumNone')}</option>
@@ -435,7 +436,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
       {/* Upload Progress */}
       {uploading && (
         <div className="space-y-3">
-          <div className="text-sm font-medium text-gray-700">
+          <div className="text-sm font-medium text-theme-text-primary">
             {t('uploading')} {uploadedCount} / {selectedFiles.length}
           </div>
           {selectedFiles.map((file, index) => {
@@ -443,14 +444,14 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
             const isComplete = uploadedCount > index;
             return (
               <div key={index} className="space-y-1">
-                <div className="flex items-center justify-between text-xs text-gray-600">
+                <div className="flex items-center justify-between text-xs text-theme-text-secondary">
                   <span className="truncate max-w-[70%]">{file.name}</span>
                   <span>{isComplete ? '✓' : `${Math.round(progress)}%`}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-1.5">
                   <div
                     className={`h-1.5 rounded-full transition-all duration-300 ${
-                      isComplete ? 'bg-green-600' : 'bg-blue-600'
+                      isComplete ? 'bg-green-600' : 'bg-theme-accent-600'
                     }`}
                     style={{ width: `${isComplete ? 100 : progress}%` }}
                   />
@@ -479,7 +480,7 @@ export default function PhotoUploadForm({ onSuccess, preselectedAlbumId }: Photo
       <button
         type="submit"
         disabled={uploading || selectedFiles.length === 0}
-        className="w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-4 py-3 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {uploading ? (
           <div className="flex items-center justify-center gap-2">

@@ -104,10 +104,10 @@ function ToastItem({ toast, onClose }: ToastItemProps) {
     },
     info: {
       icon: Info,
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-      textColor: 'text-blue-800',
-      iconColor: 'text-blue-600',
+      bgColor: 'bg-theme-accent-50',
+      borderColor: 'border-theme-accent-200',
+      textColor: 'text-theme-accent-800',
+      iconColor: 'text-theme-accent-600',
     },
   };
 

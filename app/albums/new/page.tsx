@@ -44,6 +44,7 @@ export default function NewAlbumPage() {
         description: description.trim() || '',
         coverPhotoUrl: '',
         photoCount: 0,
+        upvoteCount: 0,
         createdAt: serverTimestamp(),
       });
 
@@ -68,12 +69,12 @@ export default function NewAlbumPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">{t('newAlbum')}</h1>
+      <h1 className="text-4xl font-bold text-theme-text-primary mb-8">{t('newAlbum')}</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Album Title */}
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="title" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('albumTitle')} *
           </label>
           <input
@@ -82,7 +83,7 @@ export default function NewAlbumPage() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={t('albumTitlePlaceholder')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={creating}
             required
           />
@@ -90,7 +91,7 @@ export default function NewAlbumPage() {
 
         {/* Album Description */}
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="description" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('albumDescription')}
           </label>
           <textarea
@@ -99,7 +100,7 @@ export default function NewAlbumPage() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder={t('albumDescriptionPlaceholder')}
             rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={creating}
           />
         </div>
@@ -115,7 +116,7 @@ export default function NewAlbumPage() {
         <button
           type="submit"
           disabled={creating}
-          className="w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {creating ? (
             <div className="flex items-center justify-center gap-2">

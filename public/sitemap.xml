@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://your-domain.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2025-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://your-domain.com/it"/>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://your-domain.com/gallery</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2025-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://your-domain.com/it/gallery"/>
+  </url>
+
+  <!-- Map View Page -->
+  <url>
+    <loc>https://your-domain.com/map</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/map"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://your-domain.com/it/map"/>
+  </url>
+
+  <!-- Timeline Page -->
+  <url>
+    <loc>https://your-domain.com/timeline</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/timeline"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://your-domain.com/it/timeline"/>
+  </url>
+
+  <!-- Albums Page -->
+  <url>
+    <loc>https://your-domain.com/albums</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/albums"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://your-domain.com/it/albums"/>
+  </url>
+
+  <!--
+  Note: Individual photo and album pages are dynamically generated.
+  Consider creating a dynamic sitemap route in Next.js for these:
+  - /photos/[id]
+  - /albums/[id]
+
+  See Next.js documentation for dynamic sitemap generation:
+  https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
+  -->
+
+</urlset>

@@ -4,13 +4,13 @@ import Image from 'next/image';
 
 export default function PageHeader() {
   return (
-    <div className="w-full bg-gradient-to-br from-blue-50 to-purple-50 py-4 md:py-12 px-4">
+    <div className="w-full bg-gradient-to-br from-theme-accent-50 to-theme-accent-100 py-4 md:py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="relative bg-white rounded-3xl shadow-xl p-6 md:p-12 overflow-hidden">
+        <div className="relative bg-theme-bg-primary rounded-3xl shadow-xl p-6 md:p-12 overflow-hidden">
           {/* Decorative background pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-purple-600 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 left-0 w-32 h-32 bg-theme-accent-600 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-theme-accent-700 rounded-full blur-3xl"></div>
           </div>
 
           {/* Triangle layout container */}
@@ -57,7 +57,7 @@ export default function PageHeader() {
 
             {/* Center logo - M&F */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-6 md:mt-0">
-              <span className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-theme-accent-600 to-theme-accent-700 bg-clip-text text-transparent drop-shadow-lg logo-text">
                 M&F
               </span>
             </div>
@@ -65,7 +65,7 @@ export default function PageHeader() {
 
           {/* Optional subtitle */}
           <div className="mt-4 md:mt-8 text-center">
-            <p className="text-gray-600 text-xs md:text-base italic">
+            <p className="text-theme-text-secondary text-xs md:text-base italic">
               Our Australian Adventure Together
             </p>
           </div>

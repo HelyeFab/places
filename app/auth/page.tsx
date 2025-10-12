@@ -31,36 +31,36 @@ export default function AuthPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-theme-bg-secondary">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-          <p className="text-gray-600">{t('loading')}</p>
+          <div className="w-12 h-12 border-4 border-theme-border-hover border-t-blue-500 rounded-full animate-spin"></div>
+          <p className="text-theme-text-secondary">{t('loading')}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-theme-accent-50 to-theme-accent-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-lg">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-theme-text-primary mb-2">
             {authMode === 'login' ? t('login') : t('signup')}
           </h1>
-          <p className="text-gray-600">{t('authMethodsTitle')}</p>
+          <p className="text-theme-text-secondary">{t('authMethodsTitle')}</p>
         </div>
 
         {/* Auth Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-theme-bg-primary rounded-2xl shadow-xl p-8">
           {/* Method Selection - Vertical Stack */}
           <div className="space-y-3 mb-8">
             <button
               onClick={() => setAuthMethod('google')}
               className={`w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-medium transition-all ${
                 authMethod === 'google'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
+                  ? 'bg-theme-accent-600 text-white shadow-lg shadow-blue-200'
+                  : 'bg-theme-bg-secondary text-theme-text-primary hover:bg-theme-bg-tertiary border-2 border-theme-border'
               }`}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -88,8 +88,8 @@ export default function AuthPage() {
               onClick={() => setAuthMethod('email')}
               className={`w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-medium transition-all ${
                 authMethod === 'email'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
+                  ? 'bg-theme-accent-600 text-white shadow-lg shadow-blue-200'
+                  : 'bg-theme-bg-secondary text-theme-text-primary hover:bg-theme-bg-tertiary border-2 border-theme-border'
               }`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,8 +102,8 @@ export default function AuthPage() {
               onClick={() => setAuthMethod('magic')}
               className={`w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-medium transition-all ${
                 authMethod === 'magic'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
+                  ? 'bg-theme-accent-600 text-white shadow-lg shadow-blue-200'
+                  : 'bg-theme-bg-secondary text-theme-text-primary hover:bg-theme-bg-tertiary border-2 border-theme-border'
               }`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,8 +116,8 @@ export default function AuthPage() {
               onClick={() => setAuthMethod('phone')}
               className={`w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-medium transition-all ${
                 authMethod === 'phone'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
+                  ? 'bg-theme-accent-600 text-white shadow-lg shadow-blue-200'
+                  : 'bg-theme-bg-secondary text-theme-text-primary hover:bg-theme-bg-tertiary border-2 border-theme-border'
               }`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,15 +138,15 @@ export default function AuthPage() {
               <div className="space-y-6">
                 <GoogleAuthButton />
                 {authMode === 'login' && (
-                  <div className="text-center pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600">
+                  <div className="text-center pt-4 border-t border-theme-border">
+                    <p className="text-sm text-theme-text-secondary">
                       {t('dontHaveAccount')}{' '}
                       <button
                         onClick={() => {
                           setAuthMode('signup');
                           setAuthMethod('email');
                         }}
-                        className="text-blue-600 hover:text-blue-700 font-semibold"
+                        className="text-theme-accent-600 hover:text-theme-accent-700 font-semibold"
                       >
                         {t('switchToSignup')}
                       </button>
@@ -159,14 +159,14 @@ export default function AuthPage() {
 
           {/* Mode Switch for non-email methods */}
           {authMethod !== 'email' && authMethod !== 'google' && (
-            <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="mt-8 pt-6 border-t border-theme-border">
               <div className="flex justify-center gap-4">
                 <button
                   onClick={() => {
                     setAuthMode('login');
                     setAuthMethod('email');
                   }}
-                  className="text-sm text-gray-600 hover:text-blue-600 font-medium"
+                  className="text-sm text-theme-text-secondary hover:text-theme-accent-600 font-medium"
                 >
                   {t('switchToLogin')}
                 </button>
@@ -176,7 +176,7 @@ export default function AuthPage() {
                     setAuthMode('signup');
                     setAuthMethod('email');
                   }}
-                  className="text-sm text-gray-600 hover:text-blue-600 font-medium"
+                  className="text-sm text-theme-text-secondary hover:text-theme-accent-600 font-medium"
                 >
                   {t('switchToSignup')}
                 </button>
@@ -187,7 +187,7 @@ export default function AuthPage() {
 
         {/* Footer */}
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-theme-text-secondary">
             Australia 2026 - Shared Photo Album
           </p>
         </div>

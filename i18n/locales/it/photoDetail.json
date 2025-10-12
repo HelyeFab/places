@@ -1,0 +1,21 @@
+{
+  "loading": "Caricamento foto...",
+  "photoNotFound": "Foto non trovata",
+  "backToGallery": "Torna alla Galleria",
+  "photo": "Foto",
+  "photoMetadata": "Informazioni Foto",
+  "reactions": "Reazioni",
+  "removeReaction": "Rimuovi reazione",
+  "react": "Reagisci",
+  "signInToReact": "Accedi per reagire",
+  "signInToReactMessage": "Accedi per reagire alle foto",
+  "comments": "Commenti",
+  "commentsCount": "Commenti ({count})",
+  "noComments": "Nessun commento ancora. Sii il primo a commentare!",
+  "writeCommentPlaceholder": "Scrivi un commento...",
+  "send": "Invia",
+  "signInToComment": "Accedi per lasciare un commento",
+  "anonymous": "Anonimo",
+  "postedBy": "Pubblicato da {name}",
+  "postedOn": "Pubblicato il {date}"
+}

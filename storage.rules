@@ -1,20 +1,67 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+
+    // ===== HELPER FUNCTIONS =====
+
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if user owns the path
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Check if file is an allowed image type
+    function isValidImageType() {
+      return request.resource.contentType.matches('image/jpeg')
+          || request.resource.contentType.matches('image/jpg')
+          || request.resource.contentType.matches('image/png')
+          || request.resource.contentType.matches('image/webp')
+          || request.resource.contentType.matches('image/heic')
+          || request.resource.contentType.matches('image/heif');
+    }
+
+    // Check if file is under size limit (10MB)
+    function isUnderSizeLimit() {
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    // Check if filename is valid (no path traversal attempts)
+    function isValidFilename(filename) {
+      return filename.size() > 0
+          && filename.size() <= 255
+          && !filename.matches('.*[/\\\\].*');
+    }
+
+    // ===== PHOTOS STORAGE =====
+
     match /photos/{userId}/{filename} {
-      // Anyone can read photos
+      // Anyone can read photos (they are public once uploaded)
       allow read: if true;
 
-      // Only authenticated users can upload to their own folder
-      // Max 10MB, images only
-      allow create: if request.auth != null
-                    && request.auth.uid == userId
-                    && request.resource.size < 10 * 1024 * 1024
-                    && request.resource.contentType.matches('image/.*');
+      // Upload validation - comprehensive security checks
+      allow create: if isAuthenticated()
+                    && isOwner(userId)
+                    && isValidImageType()
+                    && isUnderSizeLimit()
+                    && isValidFilename(filename);
+
+      // No updates allowed - photos are immutable once uploaded
+      // Users must delete and re-upload if they want to change
+      allow update: if false;
 
       // Only the owner can delete their photos
-      allow delete: if request.auth != null
-                    && request.auth.uid == userId;
+      allow delete: if isAuthenticated()
+                    && isOwner(userId);
+    }
+
+    // ===== DENY ALL OTHER PATHS =====
+    // Explicitly deny any paths that don't match above
+    match /{allPaths=**} {
+      allow read, write: if false;
     }
   }
 }

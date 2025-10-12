@@ -101,7 +101,7 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
     <div className="w-full">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('email')}
           </label>
           <input
@@ -110,13 +110,13 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t('enterEmail')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={loading}
           />
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="password" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('password')}
           </label>
           <input
@@ -125,14 +125,14 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder={t('enterPassword')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={loading}
           />
         </div>
 
         {mode === 'signup' && (
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-theme-text-primary mb-1">
               {t('confirmPassword')}
             </label>
             <input
@@ -141,7 +141,7 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder={t('confirmPassword')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
               disabled={loading}
             />
           </div>
@@ -156,7 +156,7 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? (
             <div className="flex items-center justify-center gap-2">
@@ -170,11 +170,11 @@ export default function EmailAuthForm({ mode, onModeChange }: EmailAuthFormProps
       </form>
 
       <div className="mt-4 text-center">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-theme-text-secondary">
           {mode === 'signup' ? t('alreadyHaveAccount') : t('dontHaveAccount')}{' '}
           <button
             onClick={() => onModeChange(mode === 'signup' ? 'login' : 'signup')}
-            className="text-blue-600 hover:text-blue-700 font-medium"
+            className="text-theme-accent-600 hover:text-theme-accent-700 font-medium"
           >
             {mode === 'signup' ? t('switchToLogin') : t('switchToSignup')}
           </button>

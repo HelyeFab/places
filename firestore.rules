@@ -1,62 +1,159 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Photos collection
+
+    // ===== HELPER FUNCTIONS =====
+
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if user is the owner of a resource
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Validate photo data structure and content
+    function isValidPhotoData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['userId', 'url', 'visibility', 'createdAt'])
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.url is string
+        && data.url.size() > 0
+        && data.url.size() <= 2048
+        && data.visibility in ['public', 'friends', 'hidden']
+        && data.createdAt is timestamp;
+    }
+
+    // Validate album data structure and content
+    function isValidAlbumData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['userId', 'title', 'createdAt'])
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.title is string
+        && data.title.size() > 0
+        && data.title.size() <= 100
+        && data.createdAt is timestamp;
+    }
+
+    // Validate comment data structure and content
+    function isValidCommentData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['userId', 'text', 'createdAt'])
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.text is string
+        && data.text.size() > 0
+        && data.text.size() <= 500
+        && data.createdAt is timestamp;
+    }
+
+    // Validate reaction data structure
+    function isValidReactionData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['userId', 'emoji', 'createdAt'])
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.emoji is string
+        && data.emoji.size() > 0
+        && data.emoji.size() <= 10
+        && data.createdAt is timestamp;
+    }
+
+    // ===== PHOTOS COLLECTION =====
+
     match /photos/{photoId} {
-      // Allow read if:
-      // - Photo has no visibility field (legacy data - allow for now)
-      // - Photo is public, OR
-      // - Photo is "friends" and user is authenticated, OR
-      // - User is the owner
+      // Read rules with proper visibility checks
       allow read: if !('visibility' in resource.data)
                   || resource.data.visibility == "public"
-                  || (request.auth != null && resource.data.visibility == "friends")
-                  || (request.auth != null && request.auth.uid == resource.data.userId);
+                  || (isAuthenticated() && resource.data.visibility == "friends")
+                  || isOwner(resource.data.userId);
 
-      // Allow create if authenticated and creating for self
-      allow create: if request.auth != null
-                    && request.resource.data.userId == request.auth.uid;
+      // Create rules with comprehensive validation
+      allow create: if isAuthenticated()
+                    && isValidPhotoData();
 
-      // Allow update/delete only by owner
-      allow update, delete: if request.auth != null
-                             && request.auth.uid == resource.data.userId;
+      // Update rules - only owner can update, with validation
+      allow update: if isOwner(resource.data.userId)
+                    && request.resource.data.userId == resource.data.userId
+                    && request.resource.data.createdAt == resource.data.createdAt;
 
-      // Comments subcollection (Phase 3)
+      // Delete rules - only owner
+      allow delete: if isOwner(resource.data.userId);
+
+      // Comments subcollection
       match /comments/{commentId} {
         // Anyone can read comments
         allow read: if true;
 
-        // Authenticated users can create comments (must set their own userId)
-        allow create: if request.auth != null
-                      && request.resource.data.userId == request.auth.uid;
+        // Authenticated users can create comments with validation
+        allow create: if isAuthenticated()
+                      && isValidCommentData();
 
-        // Users can delete their own comments
-        allow delete: if request.auth != null
-                      && request.auth.uid == resource.data.userId;
+        // No updates allowed to prevent tampering
+        allow update: if false;
+
+        // Users can only delete their own comments
+        allow delete: if isOwner(resource.data.userId);
       }
 
-      // Reactions subcollection (Phase 3)
+      // Reactions subcollection
       match /reactions/{userId} {
         // Anyone can read reactions
         allow read: if true;
 
-        // Users can only write their own reactions
-        allow write: if request.auth != null && userId == request.auth.uid;
+        // Users can only create/update their own reactions with validation
+        allow create, update: if isAuthenticated()
+                              && userId == request.auth.uid
+                              && isValidReactionData();
+
+        // Users can only delete their own reactions
+        allow delete: if isAuthenticated() && userId == request.auth.uid;
       }
     }
 
-    // Albums collection
+    // ===== ALBUMS COLLECTION =====
+
     match /albums/{albumId} {
-      // Anyone can read albums
+      // Anyone can read albums (they are public)
       allow read: if true;
 
-      // Only authenticated users can create albums for themselves
-      allow create: if request.auth != null
-                    && request.resource.data.userId == request.auth.uid;
+      // Authenticated users can create albums with validation
+      allow create: if isAuthenticated()
+                    && isValidAlbumData();
 
-      // Only owner can update/delete
-      allow update, delete: if request.auth != null
-                             && request.auth.uid == resource.data.userId;
+      // Only owner can update, with validation and immutable fields
+      allow update: if isOwner(resource.data.userId)
+                    && request.resource.data.userId == resource.data.userId
+                    && request.resource.data.createdAt == resource.data.createdAt;
+
+      // Only owner can delete
+      allow delete: if isOwner(resource.data.userId);
+    }
+
+    // ===== GENERIC VOTES SUBCOLLECTION =====
+    // Path: /{col}/{doc}/votes/{uid}
+    // Works for photos, albums, comments, etc.
+
+    match /{col}/{doc}/votes/{uid} {
+      // Anyone can read vote counts
+      allow read: if true;
+
+      // Create = upvote (only if authenticated and voting for yourself)
+      allow create: if isAuthenticated()
+                    && uid == request.auth.uid
+                    && request.resource.data.userId == request.auth.uid
+                    && !exists(/databases/$(database)/documents/$(col)/$(doc)/votes/$(uid));
+
+      // Delete = unvote (only yourself)
+      allow delete: if isAuthenticated()
+                    && uid == request.auth.uid;
+
+      // No updates allowed (no downvote concept, no field tampering)
+      allow update: if false;
     }
   }
 }

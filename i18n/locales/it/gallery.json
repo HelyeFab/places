@@ -22,5 +22,6 @@
   "deletePhoto": "Elimina Foto",
   "confirmDelete": "Sei sicuro di voler eliminare questa foto? Questa azione non può essere annullata.",
   "deleteError": "Errore nell'eliminazione della foto: {message}",
-  "close": "Chiudi"
+  "close": "Chiudi",
+  "sortByDate": "Ordina per data"
 }

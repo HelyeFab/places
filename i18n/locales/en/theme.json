@@ -1,0 +1,27 @@
+{
+  "mode": "Theme Mode",
+  "light": "Light",
+  "dark": "Dark",
+  "toggleMode": "Toggle theme mode",
+  "switchToLight": "Switch to light mode",
+  "switchToDark": "Switch to dark mode",
+  "palette": "Color Palette",
+  "selectPalette": "Select color palette",
+  "currentPalette": "Current palette",
+  "palettes": {
+    "blue": "Blue (Ocean)",
+    "green": "Green (Nature)",
+    "purple": "Purple (Creative)",
+    "orange": "Orange (Energetic)",
+    "pink": "Pink (Vibrant)",
+    "teal": "Teal (Modern)"
+  },
+  "paletteDescriptions": {
+    "blue": "Classic blue palette inspired by ocean waves",
+    "green": "Natural green palette inspired by nature",
+    "purple": "Creative purple palette for artistic expression",
+    "orange": "Energetic orange palette for vibrant experiences",
+    "pink": "Vibrant pink palette for bold statements",
+    "teal": "Modern teal palette for contemporary design"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "loading": "Loading photo...",
+  "photoNotFound": "Photo not found",
+  "backToGallery": "Back to Gallery",
+  "photo": "Photo",
+  "photoMetadata": "Photo Information",
+  "reactions": "Reactions",
+  "removeReaction": "Remove reaction",
+  "react": "React",
+  "signInToReact": "Sign in to react",
+  "signInToReactMessage": "Sign in to react to photos",
+  "comments": "Comments",
+  "commentsCount": "Comments ({count})",
+  "noComments": "No comments yet. Be the first to comment!",
+  "writeCommentPlaceholder": "Write a comment...",
+  "send": "Send",
+  "signInToComment": "Sign in to leave a comment",
+  "anonymous": "Anonymous",
+  "postedBy": "Posted by {name}",
+  "postedOn": "Posted on {date}"
+}

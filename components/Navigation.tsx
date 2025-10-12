@@ -7,6 +7,8 @@ import { auth } from '@/lib/firebase';
 import UserMenu from '@/components/UserMenu';
 import { useEffect, useState } from 'react';
 import { Image, FolderOpen, Map, Calendar, Upload } from 'lucide-react';
+import ThemeToggle from '@/components/theme/ThemeToggle';
+import PaletteSelector from '@/components/theme/PaletteSelector';
 
 export default function Navigation() {
   const t = useTranslations('navigation');
@@ -30,11 +32,11 @@ export default function Navigation() {
   return (
     <>
       {/* Top Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-white shadow-md">
+      <nav className="sticky top-0 z-50 backdrop-blur-xl shadow-md border-b border-theme-border" style={{ backgroundColor: 'rgba(var(--bg-primary), 0.8)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
-            <Link href="/" className="flex items-center gap-2 text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold text-theme-accent-600 hover:text-theme-accent-700 transition-colors">
               <span className="text-2xl">🇦🇺</span>
               <span className="hidden sm:inline">{t('brand')}</span>
               <span className="sm:hidden">{t('brandShort')}</span>
@@ -44,40 +46,46 @@ export default function Navigation() {
             <div className="hidden md:flex items-center gap-6">
               <Link
                 href="/gallery"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
                 {t('gallery')}
               </Link>
               <Link
                 href="/albums"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
                 {t('albums')}
               </Link>
               <Link
                 href="/map"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
                 {t('map')}
               </Link>
               <Link
                 href="/timeline"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
                 {t('timeline')}
               </Link>
               <Link
                 href="/upload"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
+                className="px-4 py-2 bg-theme-accent-600 text-white rounded-lg hover:bg-theme-accent-700 font-medium transition-colors"
               >
                 {t('upload')}
               </Link>
             </div>
 
-            {/* Auth Section */}
+            {/* Theme Controls & Auth Section */}
             <div className="flex items-center gap-3">
+              {/* Theme Controls */}
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <PaletteSelector />
+              </div>
+
               {loading ? (
-                <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                <div className="w-8 h-8 border-2 border-theme-border border-t-theme-accent-500 rounded-full animate-spin"></div>
               ) : user ? (
                 <UserMenu
                   user={{
@@ -90,7 +98,7 @@ export default function Navigation() {
               ) : (
                 <Link
                   href="/auth"
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+                  className="px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors shadow-sm"
                 >
                   {tAuth('login')}
                 </Link>
@@ -102,39 +110,39 @@ export default function Navigation() {
 
       {/* Mobile Bottom Navigation - Floating */}
       <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 px-2 py-3">
+        <div className="backdrop-blur-xl rounded-2xl shadow-2xl border border-theme-border px-2 py-3" style={{ backgroundColor: 'rgba(var(--bg-primary), 0.9)' }}>
           <div className="flex items-center justify-around">
             <Link
               href="/gallery"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-50"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
               <Image className="w-5 h-5" />
               <span className="text-xs font-medium">{t('gallery')}</span>
             </Link>
             <Link
               href="/albums"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-50"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
               <FolderOpen className="w-5 h-5" />
               <span className="text-xs font-medium">{t('albums')}</span>
             </Link>
             <Link
               href="/map"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-50"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
               <Map className="w-5 h-5" />
               <span className="text-xs font-medium">{t('map')}</span>
             </Link>
             <Link
               href="/timeline"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-50"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
               <Calendar className="w-5 h-5" />
               <span className="text-xs font-medium">{t('timeline')}</span>
             </Link>
             <Link
               href="/upload"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-lg"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-white bg-theme-accent-600 hover:bg-theme-accent-700 transition-colors rounded-lg"
             >
               <Upload className="w-5 h-5" />
               <span className="text-xs font-medium">{t('upload')}</span>

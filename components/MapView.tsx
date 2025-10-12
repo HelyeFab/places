@@ -103,10 +103,10 @@ export default function MapView() {
 
   if (loading) {
     return (
-      <div className="h-[70vh] rounded-xl bg-gray-100 flex items-center justify-center">
+      <div className="h-[70vh] rounded-xl bg-theme-bg-tertiary flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-          <p className="text-gray-600">Loading map...</p>
+          <div className="w-8 h-8 border-4 border-theme-accent-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+          <p className="text-theme-text-secondary">Loading map...</p>
         </div>
       </div>
     );
@@ -114,11 +114,11 @@ export default function MapView() {
 
   if (points.length === 0) {
     return (
-      <div className="h-[70vh] rounded-xl bg-gray-100 flex items-center justify-center">
+      <div className="h-[70vh] rounded-xl bg-theme-bg-tertiary flex items-center justify-center">
         <div className="text-center p-8">
           <div className="text-6xl mb-4">🗺️</div>
-          <p className="text-lg text-gray-600 mb-2">No geotagged photos yet</p>
-          <p className="text-sm text-gray-500">Upload photos with location data to see them on the map</p>
+          <p className="text-lg text-theme-text-secondary mb-2">No geotagged photos yet</p>
+          <p className="text-sm text-theme-text-secondary">Upload photos with location data to see them on the map</p>
         </div>
       </div>
     );
@@ -146,7 +146,7 @@ export default function MapView() {
             <Popup>
               <div className="text-sm min-w-[200px]">
                 {photo.place && (
-                  <div className="font-semibold mb-2 text-gray-900">{photo.place}</div>
+                  <div className="font-semibold mb-2 text-theme-text-primary">{photo.place}</div>
                 )}
 
                 <div className="mb-2">
@@ -158,12 +158,12 @@ export default function MapView() {
                 </div>
 
                 {photo.caption && (
-                  <div className="text-gray-700 mb-2 line-clamp-2">{photo.caption}</div>
+                  <div className="text-theme-text-primary mb-2 line-clamp-2">{photo.caption}</div>
                 )}
 
                 <Link
                   href={`/photos/${photo.id}`}
-                  className="inline-block text-blue-600 hover:text-blue-700 font-medium"
+                  className="inline-block text-theme-accent-600 hover:text-theme-accent-700 font-medium"
                 >
                   View Photo →
                 </Link>

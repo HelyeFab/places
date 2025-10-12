@@ -19,6 +19,9 @@ export default getRequestConfig(async () => {
       upload: (await import(`./locales/${locale}/upload.json`)).default,
       gallery: (await import(`./locales/${locale}/gallery.json`)).default,
       albums: (await import(`./locales/${locale}/albums.json`)).default,
+      photoDetail: (await import(`./locales/${locale}/photoDetail.json`)).default,
+      voting: (await import(`./locales/${locale}/voting.json`)).default,
+      theme: (await import(`./locales/${locale}/theme.json`)).default,
     },
   };
 });

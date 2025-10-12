@@ -1,0 +1,21 @@
+# Robots.txt for Australia 2026 Places
+# Allow all crawlers to access public content
+
+User-agent: *
+Allow: /
+Allow: /gallery
+Allow: /map
+Allow: /timeline
+Allow: /albums
+Allow: /photos
+
+# Disallow private/auth pages
+Disallow: /auth
+Disallow: /upload
+Disallow: /albums/new
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Crawl-delay (optional - adjust if needed)
+Crawl-delay: 1

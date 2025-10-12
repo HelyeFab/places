@@ -1,0 +1,11 @@
+{
+  "giveVote": "Metti un voto positivo",
+  "removeVote": "Rimuovi voto",
+  "signInToVote": "Accedi per votare",
+  "votes": "{count} {count, plural, one {voto} other {voti}}",
+  "upvote": "Vota",
+  "upvoted": "Votato",
+  "topRated": "Più Votati",
+  "mostVoted": "Più Votati",
+  "sortByVotes": "Ordina per voti"
+}

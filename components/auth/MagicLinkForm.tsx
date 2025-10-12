@@ -124,12 +124,12 @@ export default function MagicLinkForm() {
   if (loading && verifying) {
     return (
       <div className="w-full">
-        <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+        <div className="p-6 bg-theme-accent-50 border border-theme-accent-200 rounded-lg">
           <div className="flex flex-col items-center gap-4">
-            <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+            <div className="w-12 h-12 border-4 border-theme-accent-200 border-t-theme-accent-600 rounded-full animate-spin"></div>
             <div className="text-center">
-              <p className="text-sm font-medium text-blue-900">{t('authSuccess')}</p>
-              <p className="text-sm text-blue-700 mt-1">{t('loading')}</p>
+              <p className="text-sm font-medium text-theme-accent-900">{t('authSuccess')}</p>
+              <p className="text-sm text-theme-accent-700 mt-1">{t('loading')}</p>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function MagicLinkForm() {
             setSent(false);
             setEmail('');
           }}
-          className="mt-4 w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          className="mt-4 w-full px-4 py-2 text-sm font-medium text-theme-text-primary bg-theme-bg-primary border border-theme-border-hover rounded-lg hover:bg-theme-bg-secondary transition-colors"
         >
           {t('backToLogin')}
         </button>
@@ -178,7 +178,7 @@ export default function MagicLinkForm() {
     <div className="w-full">
       <form onSubmit={handleSendLink} className="space-y-4">
         <div>
-          <label htmlFor="magic-email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="magic-email" className="block text-sm font-medium text-theme-text-primary mb-1">
             {t('email')}
           </label>
           <input
@@ -187,7 +187,7 @@ export default function MagicLinkForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t('enterEmail')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-theme-border-hover rounded-lg focus:ring-2 focus:ring-theme-accent-500 focus:border-transparent"
             disabled={loading}
           />
         </div>
@@ -201,7 +201,7 @@ export default function MagicLinkForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? (
             <div className="flex items-center justify-center gap-2">

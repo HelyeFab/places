@@ -1,0 +1,27 @@
+{
+  "mode": "Modalità Tema",
+  "light": "Chiaro",
+  "dark": "Scuro",
+  "toggleMode": "Cambia modalità tema",
+  "switchToLight": "Passa alla modalità chiara",
+  "switchToDark": "Passa alla modalità scura",
+  "palette": "Tavolozza Colori",
+  "selectPalette": "Seleziona tavolozza colori",
+  "currentPalette": "Tavolozza attuale",
+  "palettes": {
+    "blue": "Blu (Oceano)",
+    "green": "Verde (Natura)",
+    "purple": "Viola (Creativo)",
+    "orange": "Arancione (Energetico)",
+    "pink": "Rosa (Vibrante)",
+    "teal": "Turchese (Moderno)"
+  },
+  "paletteDescriptions": {
+    "blue": "Tavolozza blu classica ispirata alle onde dell'oceano",
+    "green": "Tavolozza verde naturale ispirata alla natura",
+    "purple": "Tavolozza viola creativa per l'espressione artistica",
+    "orange": "Tavolozza arancione energetica per esperienze vivaci",
+    "pink": "Tavolozza rosa vibrante per dichiarazioni audaci",
+    "teal": "Tavolozza turchese moderna per il design contemporaneo"
+  }
+}

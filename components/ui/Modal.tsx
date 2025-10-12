@@ -60,17 +60,17 @@ export default function Modal({
     >
       <div
         ref={modalRef}
-        className={`relative w-full ${sizeClasses[size]} bg-white rounded-lg shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200`}
+        className={`relative w-full ${sizeClasses[size]} bg-theme-bg-primary rounded-lg shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-            {title && <h2 className="text-xl font-semibold text-gray-900">{title}</h2>}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-theme-border">
+            {title && <h2 className="text-xl font-semibold text-theme-text-primary">{title}</h2>}
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-theme-text-tertiary hover:text-theme-text-secondary transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -118,16 +118,16 @@ export function ConfirmModal({
   const confirmButtonClass =
     confirmVariant === 'danger'
       ? 'bg-red-600 hover:bg-red-700 text-white'
-      : 'bg-blue-600 hover:bg-blue-700 text-white';
+      : 'bg-theme-accent-600 hover:bg-theme-accent-700 text-white';
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
       <div className="space-y-4">
-        <p className="text-gray-700">{message}</p>
+        <p className="text-theme-text-primary">{message}</p>
         <div className="flex gap-3 justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+            className="px-4 py-2 text-theme-text-primary bg-theme-bg-tertiary rounded-lg hover:bg-gray-200 transition-colors"
           >
             {cancelText}
           </button>
