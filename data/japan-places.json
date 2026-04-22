@@ -1,0 +1,129 @@
+[
+  {
+    "slug": "tokyo",
+    "name": "Tokyo",
+    "nameJa": "東京",
+    "prefecture": "Tokyo",
+    "lat": 35.6812,
+    "lng": 139.7671,
+    "aliases": [
+      "Tokyo",
+      "Imperial Palace",
+      "Ginza",
+      "Itoya",
+      "Itoya Ginza",
+      "Marunouchi",
+      "Maruzen",
+      "Maruzen Marunouchi"
+    ],
+    "notes": [
+      "Starting point of the trip",
+      "Imperial Palace area",
+      "Itoya Ginza",
+      "Maruzen Marunouchi"
+    ]
+  },
+  {
+    "slug": "yokohama",
+    "name": "Yokohama",
+    "nameJa": "横浜",
+    "prefecture": "Kanagawa",
+    "lat": 35.4437,
+    "lng": 139.638,
+    "aliases": [
+      "Yokohama",
+      "Minato Mirai",
+      "Cosmo Clock",
+      "Cosmo Clock 21",
+      "Red Brick Warehouse",
+      "Pokemon Center Yokohama",
+      "Pokémon Center Yokohama"
+    ],
+    "notes": [
+      "Minato Mirai",
+      "Cosmo Clock 21",
+      "Red Brick Warehouse",
+      "Pokémon Center Yokohama"
+    ]
+  },
+  {
+    "slug": "kamakura",
+    "name": "Kamakura",
+    "nameJa": "鎌倉",
+    "prefecture": "Kanagawa",
+    "lat": 35.3195,
+    "lng": 139.5467,
+    "aliases": [
+      "Kamakura",
+      "Kamakura / Ofuna",
+      "Kamakura/Ofuna",
+      "Ofuna",
+      "Engaku-ji",
+      "Engakuji",
+      "Hasedera",
+      "Hase-dera",
+      "Great Buddha",
+      "Kamakura Daibutsu",
+      "Tennen",
+      "Ten'en",
+      "Goryo Shrine",
+      "Kamakurakokomae",
+      "Kamakura Koko-mae"
+    ],
+    "notes": [
+      "Engaku-ji (円覚寺)",
+      "Hasedera (長谷寺)",
+      "Great Buddha (鎌倉大仏)",
+      "Ten'en Hiking Course (天園ハイキングコース)",
+      "Goryo Shrine (御霊神社)",
+      "Kamakurakokomae crossing (鎌倉高校前踏切)"
+    ]
+  },
+  {
+    "slug": "hakone",
+    "name": "Hakone",
+    "nameJa": "箱根",
+    "prefecture": "Kanagawa",
+    "lat": 35.2324,
+    "lng": 139.1069,
+    "aliases": [
+      "Hakone",
+      "Hakone Shrine",
+      "Lake Ashi",
+      "Ashinoko",
+      "Torii"
+    ],
+    "notes": [
+      "Hakone Shrine (箱根神社)",
+      "Torii Gate on Lake Ashi (芦ノ湖鳥居)",
+      "Lake Ashi (芦ノ湖)"
+    ]
+  },
+  {
+    "slug": "ito-izu",
+    "name": "Ito (Izu Peninsula)",
+    "nameJa": "伊東 (伊豆半島)",
+    "prefecture": "Shizuoka",
+    "lat": 34.96,
+    "lng": 139.0989,
+    "aliases": [
+      "Ito",
+      "Izu",
+      "Izu Peninsula",
+      "Mount Omuro",
+      "Omuro",
+      "Omuroyama",
+      "Jogasaki",
+      "Jogasaki Coast",
+      "Kawazu",
+      "Kawazu Seven Waterfalls",
+      "Kawazu Nanadaru"
+    ],
+    "notes": [
+      "Mount Omuro (大室山)",
+      "Jogasaki Coast (城ヶ崎海岸)",
+      "Kawazu Seven Waterfalls (河津七滝)",
+      "Current base — car-based exploration"
+    ]
+  }
+]

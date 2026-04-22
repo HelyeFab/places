@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '@/lib/firebase';
 import UserMenu from '@/components/UserMenu';
 import { useEffect, useState } from 'react';
-import { Home, Image, FolderOpen, Calendar, FlaskConical } from 'lucide-react';
+import { Home, Image, FolderOpen, Calendar, MapPin } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import PaletteSelector from '@/components/theme/PaletteSelector';
 
@@ -63,10 +63,10 @@ export default function Navigation() {
                 {t('timeline')}
               </Link>
               <Link
-                href="/test"
+                href="/map"
                 className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
-                {t('test')}
+                {t('map')}
               </Link>
 
             </div>
@@ -136,11 +136,11 @@ export default function Navigation() {
               <span className="text-xs font-medium">{t('timeline')}</span>
             </Link>
             <Link
-              href="/test"
+              href="/map"
               className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
-              <FlaskConical className="w-5 h-5" />
-              <span className="text-xs font-medium">{t('test')}</span>
+              <MapPin className="w-5 h-5" />
+              <span className="text-xs font-medium">{t('map')}</span>
             </Link>
 
           </div>
