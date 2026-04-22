@@ -1,5 +1,95 @@
 [
   {
+    "slug": "shinjuku",
+    "name": "Shinjuku",
+    "nameJa": "新宿",
+    "prefecture": "Tokyo",
+    "lat": 35.6896,
+    "lng": 139.7006,
+    "aliases": [
+      "Shinjuku",
+      "Tokyo-Shinjuku",
+      "Tokyo Shinjuku"
+    ],
+    "notes": [
+      "Busy entertainment & shopping district",
+      "Shinjuku Station"
+    ]
+  },
+  {
+    "slug": "engaku-ji",
+    "name": "Engaku-ji",
+    "nameJa": "円覚寺",
+    "prefecture": "Kanagawa",
+    "lat": 35.3361,
+    "lng": 139.5473,
+    "aliases": [
+      "Engaku-ji",
+      "Engakuji",
+      "Engaku ji"
+    ],
+    "notes": [
+      "Zen temple in Kita-Kamakura",
+      "One of the Five Great Zen Temples of Kamakura"
+    ]
+  },
+  {
+    "slug": "kamakurakokomae",
+    "name": "Kamakurakōkō-mae",
+    "nameJa": "鎌倉高校前",
+    "prefecture": "Kanagawa",
+    "lat": 35.3071,
+    "lng": 139.5017,
+    "aliases": [
+      "Kamakurakokomae",
+      "Kamakura Koko-mae",
+      "Kamakurakoukoumae",
+      "Suzume"
+    ],
+    "notes": [
+      "Railway crossing — Slam Dunk opening landmark",
+      "Also a Suzume (Makoto Shinkai) location"
+    ]
+  },
+  {
+    "slug": "mount-omuro",
+    "name": "Mount Omuro",
+    "nameJa": "大室山",
+    "prefecture": "Shizuoka",
+    "lat": 34.8988,
+    "lng": 139.0924,
+    "aliases": [
+      "Mount Omuro",
+      "Omuro",
+      "Omuroyama",
+      "Mt Omuro",
+      "Mt. Omuro"
+    ],
+    "notes": [
+      "Volcanic crater, grassy cone",
+      "Chairlift to summit rim walk"
+    ]
+  },
+  {
+    "slug": "kawazu-nanadaru",
+    "name": "Kawazu Nanadaru",
+    "nameJa": "河津七滝",
+    "prefecture": "Shizuoka",
+    "lat": 34.7526,
+    "lng": 138.9483,
+    "aliases": [
+      "Kawazu",
+      "Kawazu Seven Waterfalls",
+      "Kawazu Seven Falls",
+      "Kawazu Nanadaru",
+      "Seven Falls"
+    ],
+    "notes": [
+      "Seven waterfalls along a hiking trail",
+      "Odaru, Kanidaru, Hebidaru, Shokeidaru, Kamadaru, Ebidaru, Deaidaru"
+    ]
+  },
+  {
     "slug": "tokyo",
     "name": "Tokyo",
     "nameJa": "東京",
@@ -58,26 +148,19 @@
       "Kamakura / Ofuna",
       "Kamakura/Ofuna",
       "Ofuna",
-      "Engaku-ji",
-      "Engakuji",
       "Hasedera",
       "Hase-dera",
       "Great Buddha",
       "Kamakura Daibutsu",
       "Tennen",
       "Ten'en",
-      "Goryo Shrine",
-      "Kamakurakokomae",
-      "Kamakura Koko-mae",
-      "Suzume"
+      "Goryo Shrine"
     ],
     "notes": [
-      "Engaku-ji (円覚寺)",
       "Hasedera (長谷寺)",
       "Great Buddha (鎌倉大仏)",
       "Ten'en Hiking Course (天園ハイキングコース)",
-      "Goryo Shrine (御霊神社)",
-      "Kamakurakokomae crossing (鎌倉高校前踏切)"
+      "Goryo Shrine (御霊神社)"
     ]
   },
   {
@@ -111,20 +194,12 @@
       "Ito",
       "Izu",
       "Izu Peninsula",
-      "Mount Omuro",
-      "Omuro",
-      "Omuroyama",
       "Jogasaki",
-      "Jogasaki Coast",
-      "Kawazu",
-      "Kawazu Seven Waterfalls",
-      "Kawazu Nanadaru"
+      "Jogasaki Coast"
     ],
     "notes": [
-      "Mount Omuro (大室山)",
-      "Jogasaki Coast (城ヶ崎海岸)",
-      "Kawazu Seven Waterfalls (河津七滝)",
-      "Current base — car-based exploration"
+      "Current base — car-based exploration",
+      "Jogasaki Coast (城ヶ崎海岸)"
     ]
   }
 ]
