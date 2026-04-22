@@ -50,7 +50,10 @@ export default function MapPage() {
     .filter((pair): pair is { album: DriveAlbum; place: Place } => pair.place !== null)
     .sort((a, b) => a.album.createdTime.localeCompare(b.album.createdTime));
 
-  const pathLabel = matchedAlbums.map(({ place }) => place.name).join(' → ');
+  const pathLabel = matchedAlbums
+    .map(({ place }) => place.name)
+    .filter((name, i, arr) => i === 0 || name !== arr[i - 1])
+    .join(' → ');
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
