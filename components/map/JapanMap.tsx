@@ -5,7 +5,7 @@ import L from 'leaflet';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import type { Place } from '@/lib/places-match';
 
 const defaultIcon = L.icon({
@@ -26,10 +26,9 @@ const JAPAN_BOUNDS: L.LatLngBoundsLiteral = [
 
 interface Props {
   places: Place[];
-  polyline: [number, number][];
 }
 
-export default function JapanMap({ places, polyline }: Props) {
+export default function JapanMap({ places }: Props) {
   return (
     <MapContainer
       bounds={JAPAN_BOUNDS}
@@ -42,13 +41,6 @@ export default function JapanMap({ places, polyline }: Props) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         maxZoom={20}
       />
-
-      {polyline.length >= 2 && (
-        <Polyline
-          positions={polyline}
-          pathOptions={{ color: '#dc2626', weight: 3, opacity: 0.85 }}
-        />
-      )}
 
       {places.map((p) => (
         <Marker key={p.slug} position={[p.lat, p.lng]}>

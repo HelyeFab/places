@@ -50,11 +50,6 @@ export default function MapPage() {
     .filter((pair): pair is { album: DriveAlbum; place: Place } => pair.place !== null)
     .sort((a, b) => a.album.createdTime.localeCompare(b.album.createdTime));
 
-  const polyline: [number, number][] = matchedAlbums.map(({ place }) => [
-    place.lat,
-    place.lng,
-  ]);
-
   const pathLabel = matchedAlbums.map(({ place }) => place.name).join(' → ');
 
   return (
@@ -64,7 +59,7 @@ export default function MapPage() {
         <h1 className="text-3xl md:text-4xl font-bold">{t('map')}</h1>
       </div>
 
-      <JapanMap places={PLACES} polyline={polyline} />
+      <JapanMap places={PLACES} />
 
       <div className="mt-6 text-sm text-theme-text-secondary">
         {loading ? (
