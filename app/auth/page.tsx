@@ -188,7 +188,7 @@ export default function AuthPage() {
         {/* Footer */}
         <div className="mt-8 text-center">
           <p className="text-sm text-theme-text-secondary">
-            Australia 2026 - Shared Photo Album
+            Japan 2026 - Shared Photo Album
           </p>
         </div>
       </div>

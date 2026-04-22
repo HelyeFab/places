@@ -10,13 +10,13 @@ import { ThemeProvider } from '@/lib/theme-context';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   title: {
-    template: '%s | Australia 2026 Places',
-    default: 'Australia 2026 Places - Shared Photo Memories',
+    template: '%s | Japan 2026 Places',
+    default: 'Japan 2026 Places - Shared Photo Memories',
   },
-  description: 'Share and explore photos from our Australia 2026 trip. View photos on interactive map, timeline, and organized albums. Collaborative photo-sharing platform for friends traveling together.',
+  description: 'Share and explore photos from our Japan 2026 trip. View photos on interactive map, timeline, and organized albums. Collaborative photo-sharing platform for friends traveling together.',
   keywords: [
     'photo sharing',
-    'australia travel',
+    'japan travel',
     'travel photography',
     'photo album',
     'collaborative photos',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'photo map',
     'photo timeline',
     'shared album',
-    'australia 2026'
+    'japan 2026'
   ],
   authors: [{ name: 'M&F' }],
   creator: 'M&F',
@@ -39,22 +39,22 @@ export const metadata: Metadata = {
     locale: 'en_US',
     alternateLocale: ['it_IT'],
     url: '/',
-    siteName: 'Australia 2026 Places',
-    title: 'Australia 2026 Places - Shared Photo Memories',
-    description: 'Share and explore photos from our Australia 2026 trip. View on map, timeline, and albums.',
+    siteName: 'Japan 2026 Places',
+    title: 'Japan 2026 Places - Shared Photo Memories',
+    description: 'Share and explore photos from our Japan 2026 trip. View on map, timeline, and albums.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Australia 2026 Places - Shared Photo Album',
+        alt: 'Japan 2026 Places - Shared Photo Album',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Australia 2026 Places - Shared Photo Memories',
-    description: 'Share and explore photos from our Australia 2026 trip. View on map, timeline, and albums.',
+    title: 'Japan 2026 Places - Shared Photo Memories',
+    description: 'Share and explore photos from our Japan 2026 trip. View on map, timeline, and albums.',
     images: ['/og-image.jpg'],
   },
   robots: {

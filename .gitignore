@@ -40,3 +40,8 @@ next-env.d.ts
 # firebase credentials
 service_accounts.json
 **/service_accounts.json
+places-fbd86-firebase-adminsdk-fbsvc-d35e3eb7c1.json
+
+# additional secrets
+google-drive-credentials.json
+.env.local.backup

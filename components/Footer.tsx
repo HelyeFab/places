@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center text-theme-text-secondary">
           <p className="text-sm">
-            🇦🇺 {t('title')}
+            🇯🇵 {t('title')}
           </p>
           <p className="text-xs mt-2 text-theme-text-tertiary">
             {t('description')}

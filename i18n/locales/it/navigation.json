@@ -1,6 +1,6 @@
 {
-  "brand": "Australia 2026",
-  "brandShort": "AU 2026",
+  "brand": "Japan 2026",
+  "brandShort": "JP 2026",
   "gallery": "Galleria",
   "albums": "Album",
   "map": "Mappa",
@@ -10,5 +10,6 @@
   "language": "Lingua",
   "signOut": "Disconnetti",
   "signedOut": "Disconnesso con successo",
-  "signOutError": "Errore durante la disconnessione"
+  "signOutError": "Errore durante la disconnessione",
+  "home": "Home"
 }

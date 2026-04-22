@@ -20,7 +20,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="py-6 sm:py-20">
         <div className="text-center">
-          <div className="text-6xl sm:text-8xl mb-6">🇦🇺</div>
+          <div className="relative w-16 h-16 sm:w-24 sm:h-24 mb-6 mx-auto"><img src="/images/japan.svg" alt="Japan" className="w-full h-full object-contain" /></div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-theme-text-primary mb-6">
             {t('hero.title')}
           </h1>
@@ -52,19 +52,13 @@ export default function Home() {
             >
               {t('cta.timeline')}
             </Link>
-            <Link
-              href="/map"
-              className="w-full sm:w-auto px-8 py-4 bg-theme-bg-primary text-theme-accent-600 text-lg font-semibold rounded-lg border-2 border-theme-accent-600 hover:bg-theme-accent-50 transition-colors"
-            >
-              {t('cta.exploreMap')}
-            </Link>
-          </div>
+            </div>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Feature 1 */}
           <div className="bg-theme-bg-primary rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
             <div className="text-4xl mb-4">📸</div>
@@ -77,17 +71,6 @@ export default function Home() {
           </div>
 
           {/* Feature 2 */}
-          <div className="bg-theme-bg-primary rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
-            <div className="text-4xl mb-4">🗺️</div>
-            <h3 className="text-xl font-bold text-theme-text-primary mb-3">
-              {t('features.map.title')}
-            </h3>
-            <p className="text-theme-text-secondary">
-              {t('features.map.description')}
-            </p>
-          </div>
-
-          {/* Feature 3 */}
           <div className="bg-theme-bg-primary rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
             <div className="text-4xl mb-4">⏱️</div>
             <h3 className="text-xl font-bold text-theme-text-primary mb-3">

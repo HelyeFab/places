@@ -1,0 +1,57 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js build output
+.next
+out
+
+# Production files
+build
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+
+# Runtime files
+.DS_Store
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+docs/
+
+# CI/CD
+.github
+
+# Testing
+.nyc_output
+coverage
+
+# Development only
+scripts/seed-photos.cjs
+service_accounts.json
+
+# Firebase
+.firebase
+.firebaserc
+firebase.json
+firestore.rules
+storage.rules
+firestore.indexes.json
+
+# TypeScript
+*.tsbuildinfo

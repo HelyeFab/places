@@ -1,34 +1,29 @@
 {
   "hero": {
-    "title": "Australia 2026",
-    "subtitle": "Your collaborative photo album for the adventure of a lifetime",
-    "description": "Share memories, explore together, and relive every moment of your Australian journey with friends"
+    "title": "Japan 2026",
+    "subtitle": "Emmanuel's photo journal from Japan",
+    "description": "Browse photos from my trip across Japan — shared with friends and family"
   },
   "cta": {
     "viewGallery": "View Gallery",
-    "timeline": "Timeline",
-    "exploreMap": "Explore Map"
+    "timeline": "Timeline"
   },
   "features": {
     "photos": {
-      "title": "Share Photos",
-      "description": "Upload and organize your favorite moments from the trip. Create albums for different locations and experiences."
-    },
-    "map": {
-      "title": "Interactive Map",
-      "description": "See where each photo was taken on an interactive map. Explore your journey across Australia visually."
+      "title": "Photo Albums",
+      "description": "Explore photos organized by location — from Tokyo to Kyoto and everywhere in between."
     },
     "timeline": {
-      "title": "Timeline View",
-      "description": "Relive your adventure chronologically. See how your journey unfolded day by day."
+      "title": "Timeline",
+      "description": "See the journey unfold day by day, from arrival to the last adventure."
     }
   },
   "gettingStarted": {
-    "title": "Ready to Start?",
-    "description": "Sign in with Google to access the shared album and start uploading your photos"
+    "title": "Want to see more?",
+    "description": "Sign in with Google to browse the full collection"
   },
   "footer": {
-    "title": "Australia 2026 Shared Album",
-    "description": "A collaborative photo-sharing platform for friends traveling together"
+    "title": "Japan 2026",
+    "description": "Emmanuel's photo journal from Japan — shared with friends"
   }
 }

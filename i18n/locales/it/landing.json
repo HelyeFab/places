@@ -1,34 +1,29 @@
 {
   "hero": {
-    "title": "Australia 2026",
-    "subtitle": "Il tuo album fotografico collaborativo per l'avventura di una vita",
-    "description": "Condividi ricordi, esplora insieme e rivivi ogni momento del tuo viaggio australiano con gli amici"
+    "title": "Giappone 2026",
+    "subtitle": "Il diario fotografico di Emmanuel dal Giappone",
+    "description": "Sfoglia le foto del mio viaggio in Giappone — condivise con amici e famiglia"
   },
   "cta": {
     "viewGallery": "Vedi Galleria",
-    "timeline": "Cronologia",
-    "exploreMap": "Esplora Mappa"
+    "timeline": "Cronologia"
   },
   "features": {
     "photos": {
-      "title": "Condividi Foto",
-      "description": "Carica e organizza i tuoi momenti preferiti del viaggio. Crea album per diverse località ed esperienze."
-    },
-    "map": {
-      "title": "Mappa Interattiva",
-      "description": "Guarda dove è stata scattata ogni foto su una mappa interattiva. Esplora visivamente il tuo viaggio attraverso l'Australia."
+      "title": "Album Fotografici",
+      "description": "Esplora le foto organizzate per luogo — da Tokyo a Kyoto e ovunque nel mezzo."
     },
     "timeline": {
-      "title": "Vista Cronologia",
-      "description": "Rivivi la tua avventura cronologicamente. Guarda come si è svolto il tuo viaggio giorno per giorno."
+      "title": "Cronologia",
+      "description": "Segui il viaggio giorno per giorno, dall'arrivo all'ultima avventura."
     }
   },
   "gettingStarted": {
-    "title": "Pronto per Iniziare?",
-    "description": "Accedi con Google per accedere all'album condiviso e iniziare a caricare le tue foto"
+    "title": "Vuoi vederne di più?",
+    "description": "Accedi con Google per sfogliare la collezione completa"
   },
   "footer": {
-    "title": "Album Condiviso Australia 2026",
-    "description": "Una piattaforma di condivisione foto collaborativa per amici che viaggiano insieme"
+    "title": "Giappone 2026",
+    "description": "Il diario fotografico di Emmanuel dal Giappone — condiviso con gli amici"
   }
 }

@@ -37,6 +37,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Enable standalone mode for Docker deployment
+  output: 'standalone',
+
   // Enable compression for better performance
   compress: true,
 

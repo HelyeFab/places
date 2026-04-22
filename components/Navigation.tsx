@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '@/lib/firebase';
 import UserMenu from '@/components/UserMenu';
 import { useEffect, useState } from 'react';
-import { Image, FolderOpen, Map, Calendar, Upload } from 'lucide-react';
+import { Home, Image, FolderOpen, Calendar } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import PaletteSelector from '@/components/theme/PaletteSelector';
 
@@ -37,7 +37,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
             <Link href="/" className="flex items-center gap-2 text-xl font-bold text-theme-accent-600 hover:text-theme-accent-700 transition-colors">
-              <span className="text-2xl">🇦🇺</span>
+              <span className="text-2xl">🇯🇵</span>
               <span className="hidden sm:inline">{t('brand')}</span>
               <span className="sm:hidden">{t('brandShort')}</span>
             </Link>
@@ -57,23 +57,12 @@ export default function Navigation() {
                 {t('albums')}
               </Link>
               <Link
-                href="/map"
-                className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
-              >
-                {t('map')}
-              </Link>
-              <Link
                 href="/timeline"
                 className="text-theme-text-primary hover:text-theme-accent-600 font-medium transition-colors"
               >
                 {t('timeline')}
               </Link>
-              <Link
-                href="/upload"
-                className="px-4 py-2 bg-theme-accent-600 text-white rounded-lg hover:bg-theme-accent-700 font-medium transition-colors"
-              >
-                {t('upload')}
-              </Link>
+
             </div>
 
             {/* Theme Controls & Auth Section */}
@@ -113,6 +102,13 @@ export default function Navigation() {
         <div className="backdrop-blur-xl rounded-2xl shadow-2xl border border-theme-border px-2 py-3" style={{ backgroundColor: 'rgba(var(--bg-primary), 0.9)' }}>
           <div className="flex items-center justify-around">
             <Link
+              href="/"
+              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
+            >
+              <Home className="w-5 h-5" />
+              <span className="text-xs font-medium">{t('home')}</span>
+            </Link>
+            <Link
               href="/gallery"
               className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
@@ -127,32 +123,19 @@ export default function Navigation() {
               <span className="text-xs font-medium">{t('albums')}</span>
             </Link>
             <Link
-              href="/map"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
-            >
-              <Map className="w-5 h-5" />
-              <span className="text-xs font-medium">{t('map')}</span>
-            </Link>
-            <Link
               href="/timeline"
               className="flex flex-col items-center gap-1 px-3 py-2 text-theme-text-primary hover:text-theme-accent-600 transition-colors rounded-lg hover:bg-theme-bg-secondary"
             >
               <Calendar className="w-5 h-5" />
               <span className="text-xs font-medium">{t('timeline')}</span>
             </Link>
-            <Link
-              href="/upload"
-              className="flex flex-col items-center gap-1 px-3 py-2 text-white bg-theme-accent-600 hover:bg-theme-accent-700 transition-colors rounded-lg"
-            >
-              <Upload className="w-5 h-5" />
-              <span className="text-xs font-medium">{t('upload')}</span>
-            </Link>
+
           </div>
         </div>
       </nav>
 
       {/* Spacer for mobile bottom nav */}
-      <div className="md:hidden h-20"></div>
+      <div className="md:hidden h-28"></div>
     </>
   );
 }
