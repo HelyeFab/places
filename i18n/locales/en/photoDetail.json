@@ -17,5 +17,8 @@
   "signInToComment": "Sign in to leave a comment",
   "anonymous": "Anonymous",
   "postedBy": "Posted by {name}",
-  "postedOn": "Posted on {date}"
+  "postedOn": "Posted on {date}",
+  "close": "Close",
+  "previous": "Previous",
+  "next": "Next"
 }

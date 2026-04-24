@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowLeft, Upload } from 'lucide-react';
+import Lightbox from '@/components/Lightbox';
 
 type DrivePhoto = {
   id: string;
@@ -24,6 +25,13 @@ function photoUrl(id: string, width?: number) {
   return "/api/photos/proxy?id=" + id;
 }
 
+function syncPhotoQuery(photoId: string | null) {
+  const url = new URL(window.location.href);
+  if (photoId) url.searchParams.set('photo', photoId);
+  else url.searchParams.delete('photo');
+  window.history.replaceState(null, '', url.toString());
+}
+
 export default function AlbumDetailPage() {
   const params = useParams();
   const t = useTranslations('albums');
@@ -32,6 +40,7 @@ export default function AlbumDetailPage() {
   const [photos, setPhotos] = useState<DrivePhoto[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const albumId = params?.id as string;
 
@@ -42,7 +51,6 @@ export default function AlbumDetailPage() {
       setLoading(true);
       setError(null);
       try {
-        // Load album info and photos in parallel
         const [albumsRes, photosRes] = await Promise.all([
           fetch('/api/drive/albums'),
           fetch("/api/drive/albums/" + albumId + "/photos"),
@@ -69,6 +77,36 @@ export default function AlbumDetailPage() {
 
     loadData();
   }, [albumId, t]);
+
+  useEffect(() => {
+    if (!photos.length) return;
+    const qs = new URLSearchParams(window.location.search);
+    const photoId = qs.get('photo');
+    if (!photoId) return;
+    const i = photos.findIndex((p) => p.id === photoId);
+    if (i >= 0) setLightboxIndex(i);
+  }, [photos]);
+
+  const openLightbox = useCallback(
+    (i: number) => {
+      setLightboxIndex(i);
+      syncPhotoQuery(photos[i].id);
+    },
+    [photos]
+  );
+
+  const changeLightboxIndex = useCallback(
+    (i: number) => {
+      setLightboxIndex(i);
+      syncPhotoQuery(photos[i].id);
+    },
+    [photos]
+  );
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null);
+    syncPhotoQuery(null);
+  }, []);
 
   if (loading) {
     return (
@@ -124,11 +162,12 @@ export default function AlbumDetailPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {photos.map((photo) => (
-            <Link
+          {photos.map((photo, i) => (
+            <button
               key={photo.id}
-              href={"/photos/" + photo.id}
-              className="group relative aspect-square bg-theme-bg-tertiary rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              type="button"
+              onClick={() => openLightbox(i)}
+              className="group relative aspect-square bg-theme-bg-tertiary rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow text-left"
             >
               <img
                 src={photoUrl(photo.id, 600)}
@@ -139,9 +178,18 @@ export default function AlbumDetailPage() {
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                 <p className="text-white text-sm line-clamp-1">{photo.name.replace(/\.[^.]+$/, '')}</p>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
+      )}
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          photos={photos}
+          index={lightboxIndex}
+          onClose={closeLightbox}
+          onIndexChange={changeLightboxIndex}
+        />
       )}
     </div>
   );
