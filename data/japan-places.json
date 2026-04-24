@@ -90,6 +90,24 @@
     ]
   },
   {
+    "slug": "yawatano",
+    "name": "Yawatano",
+    "nameJa": "八幡野",
+    "prefecture": "Shizuoka",
+    "lat": 34.8911,
+    "lng": 139.1331,
+    "aliases": [
+      "Yawatano",
+      "Yawatano Port",
+      "Yawatano-Ito",
+      "Yawatano-Itō"
+    ],
+    "notes": [
+      "Coastal area south of Itō (Izu Peninsula)",
+      "Yawatano fishing port"
+    ]
+  },
+  {
     "slug": "tokyo",
     "name": "Tokyo",
     "nameJa": "東京",
@@ -184,6 +202,28 @@
     ]
   },
   {
+    "slug": "shimoda",
+    "name": "Shimoda",
+    "nameJa": "下田",
+    "prefecture": "Shizuoka",
+    "lat": 34.679,
+    "lng": 138.9456,
+    "aliases": [
+      "Shimoda",
+      "Perry Road",
+      "Ryosenji",
+      "Ryosen-ji",
+      "Shirahama",
+      "Shirahama Beach"
+    ],
+    "notes": [
+      "Port city on the south coast of Izu Peninsula",
+      "Ryosen-ji (了仙寺)",
+      "Perry Road (ペリーロード)",
+      "Shirahama Beach (白浜海岸)"
+    ]
+  },
+  {
     "slug": "ito-izu",
     "name": "Ito (Izu Peninsula)",
     "nameJa": "伊東 (伊豆半島)",
@@ -192,6 +232,7 @@
     "lng": 139.0989,
     "aliases": [
       "Ito",
+      "Itō",
       "Izu",
       "Izu Peninsula",
       "Jogasaki",
