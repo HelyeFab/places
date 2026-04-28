@@ -108,6 +108,71 @@
     ]
   },
   {
+    "slug": "amano-iwato",
+    "name": "Ama-no-Iwato",
+    "nameJa": "天岩戸",
+    "prefecture": "Mie",
+    "lat": 34.5114,
+    "lng": 136.7858,
+    "aliases": [
+      "Amano-Iwato",
+      "Ama-no-Iwato",
+      "Amanoiwato",
+      "Amano Iwato",
+      "Iwato"
+    ],
+    "notes": [
+      "Cave shrine (天岩戸) — mythological hiding place of Amaterasu",
+      "Futami / Ise area, Mie"
+    ]
+  },
+  {
+    "slug": "yokoyama-observatory",
+    "name": "Yokoyama Observatory",
+    "nameJa": "横山展望台",
+    "prefecture": "Mie",
+    "lat": 34.3164,
+    "lng": 136.8047,
+    "aliases": [
+      "Yokoyama",
+      "Yokoyama Observatory",
+      "Ago Bay",
+      "Ago-Bay",
+      "Ago",
+      "Yokoyama-Ago-Bay",
+      "Yokohama-Ago-Bay"
+    ],
+    "notes": [
+      "Panoramic viewpoint over Ago Bay (英虞湾)",
+      "Shima, Ise-Shima National Park"
+    ]
+  },
+  {
+    "slug": "nachisan",
+    "name": "Nachisan / Seiganto-ji",
+    "nameJa": "那智山・青岸渡寺",
+    "prefecture": "Wakayama",
+    "lat": 33.6694,
+    "lng": 135.8911,
+    "aliases": [
+      "Nachisan",
+      "Seiganto-ji",
+      "Seigantoji",
+      "Seiganto ji",
+      "Nachi",
+      "Nachi Falls",
+      "Nachi Taisha",
+      "Kumano Nachi",
+      "Nachisan-Seigantoji-Temple",
+      "Seigantoji Temple"
+    ],
+    "notes": [
+      "Seiganto-ji (青岸渡寺) — Tendai Buddhist temple",
+      "Nachi Falls (那智の滝) — Japan's tallest single-drop waterfall",
+      "Kumano Kodo pilgrimage route"
+    ]
+  },
+  {
     "slug": "tokyo",
     "name": "Tokyo",
     "nameJa": "東京",
@@ -221,6 +286,30 @@
       "Ryosen-ji (了仙寺)",
       "Perry Road (ペリーロード)",
       "Shirahama Beach (白浜海岸)"
+    ]
+  },
+  {
+    "slug": "ise",
+    "name": "Ise",
+    "nameJa": "伊勢",
+    "prefecture": "Mie",
+    "lat": 34.4869,
+    "lng": 136.7104,
+    "aliases": [
+      "Ise",
+      "Geku",
+      "Genku",
+      "Naiku",
+      "Ise Grand Shrine",
+      "Ise-Geku",
+      "Ise-Naiku",
+      "Ise Jingu",
+      "Ise-Jingu"
+    ],
+    "notes": [
+      "Naiku (内宮) — Inner Shrine, dedicated to Amaterasu",
+      "Geku (外宮) — Outer Shrine, dedicated to Toyouke",
+      "Uji Bridge and the sacred Isuzu River"
     ]
   },
   {
