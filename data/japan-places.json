@@ -331,5 +331,71 @@
       "Current base — car-based exploration",
       "Jogasaki Coast (城ヶ崎海岸)"
     ]
+  },
+  {
+    "slug": "osaka",
+    "name": "Osaka",
+    "nameJa": "大阪",
+    "prefecture": "Osaka",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "aliases": [
+      "Osaka",
+      "Dotonbori",
+      "Dōtonbori",
+      "Osaka Castle",
+      "Osakajo",
+      "Shinsekai",
+      "Tsutenkaku"
+    ],
+    "notes": [
+      "Dotonbori (道頓堀)",
+      "Osaka Castle (大阪城)",
+      "Shinsekai & Tsutenkaku (新世界・通天閣)",
+      "Street food: takoyaki, okonomiyaki, kushikatsu"
+    ]
+  },
+  {
+    "slug": "hiroshima",
+    "name": "Hiroshima",
+    "nameJa": "広島",
+    "prefecture": "Hiroshima",
+    "lat": 34.3853,
+    "lng": 132.4553,
+    "aliases": [
+      "Hiroshima",
+      "Peace Memorial Park",
+      "Atomic Bomb Dome",
+      "Genbaku Dome",
+      "Peace Memorial Museum"
+    ],
+    "notes": [
+      "Peace Memorial Park (平和記念公園)",
+      "Atomic Bomb Dome (原爆ドーム)",
+      "Hiroshima Peace Memorial Museum",
+      "Okonomiyaki (Hiroshima-style)"
+    ]
+  },
+  {
+    "slug": "miyajima",
+    "name": "Miyajima (Itsukushima)",
+    "nameJa": "宮島・厳島",
+    "prefecture": "Hiroshima",
+    "lat": 34.2959,
+    "lng": 132.3197,
+    "aliases": [
+      "Miyajima",
+      "Itsukushima",
+      "Itsukushima Shrine",
+      "Floating Torii",
+      "Mount Misen",
+      "Misen"
+    ],
+    "notes": [
+      "Itsukushima Shrine (厳島神社)",
+      "Floating Torii Gate (大鳥居)",
+      "Mount Misen (弥山)",
+      "Friendly deer roaming the island"
+    ]
   }
 ]
