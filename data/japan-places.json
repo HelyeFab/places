@@ -173,6 +173,48 @@
     ]
   },
   {
+    "slug": "kenrokuen",
+    "name": "Kenrokuen",
+    "nameJa": "兼六園",
+    "prefecture": "Ishikawa",
+    "lat": 36.5622,
+    "lng": 136.6628,
+    "aliases": [
+      "Kenrokuen",
+      "Kenroku-en",
+      "Kenroku en",
+      "Kenroku Garden"
+    ],
+    "notes": [
+      "One of Japan's Three Great Gardens (日本三名園)",
+      "Strolling-style Edo-period landscape garden",
+      "Kotoji-tōrō stone lantern at Kasumigaike Pond",
+      "Adjacent to Kanazawa Castle"
+    ]
+  },
+  {
+    "slug": "nagamachi",
+    "name": "Nagamachi Samurai District",
+    "nameJa": "長町武家屋敷跡",
+    "prefecture": "Ishikawa",
+    "lat": 36.5667,
+    "lng": 136.6533,
+    "aliases": [
+      "Nagamachi",
+      "Nagamachi Samurai District",
+      "Nagamachi Buke Yashiki",
+      "Buke Yashiki",
+      "Nomura-ke",
+      "Nomura Family House"
+    ],
+    "notes": [
+      "Preserved Edo-era samurai residences",
+      "Earthen walls (土塀) and stone-paved lanes",
+      "Nomura-ke (野村家) samurai house & garden",
+      "Ōno-shō Canal flowing through the district"
+    ]
+  },
+  {
     "slug": "tokyo",
     "name": "Tokyo",
     "nameJa": "東京",
@@ -396,6 +438,32 @@
       "Floating Torii Gate (大鳥居)",
       "Mount Misen (弥山)",
       "Friendly deer roaming the island"
+    ]
+  },
+  {
+    "slug": "kanazawa",
+    "name": "Kanazawa",
+    "nameJa": "金沢",
+    "prefecture": "Ishikawa",
+    "lat": 36.5614,
+    "lng": 136.6562,
+    "aliases": [
+      "Kanazawa",
+      "Higashi Chaya",
+      "Higashi-Chaya",
+      "Higashi Chayagai",
+      "Omicho",
+      "Omicho Market",
+      "Ōmichō",
+      "Kanazawa Castle",
+      "Kanazawajo"
+    ],
+    "notes": [
+      "Castle town, well-preserved Edo character",
+      "Higashi Chaya (ひがし茶屋街) geisha district",
+      "Ōmichō Market (近江町市場)",
+      "Kanazawa Castle (金沢城)",
+      "Famous for gold leaf (金箔) production"
     ]
   }
 ]
