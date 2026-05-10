@@ -465,5 +465,37 @@
       "Kanazawa Castle (金沢城)",
       "Famous for gold leaf (金箔) production"
     ]
+  },
+  {
+    "slug": "awaji",
+    "name": "Awaji Island",
+    "nameJa": "淡路島",
+    "prefecture": "Hyōgo",
+    "lat": 34.39,
+    "lng": 134.85,
+    "aliases": [
+      "Awaji",
+      "Awajishima",
+      "Awaji-shima",
+      "Awaji Shima",
+      "Awaji Island",
+      "Yumebutai",
+      "Awaji Yumebutai",
+      "Izanagi-jingu",
+      "Izanagi Jingu",
+      "Izanagi-jingū",
+      "Naruto whirlpools",
+      "Uzu-no-michi",
+      "Akashi-Kaikyo",
+      "Akashi Kaikyo Bridge",
+      "Akashi-Kaikyō Bridge"
+    ],
+    "notes": [
+      "Largest island in the Seto Inland Sea",
+      "Naruto whirlpools / Uzu-no-michi (鳴門の渦潮・渦の道)",
+      "Awaji Yumebutai (淡路夢舞台) — Tadao Andō complex",
+      "Izanagi-jingū (伊弉諾神宮) — Kojiki creation-myth shrine",
+      "Akashi-Kaikyō Bridge (明石海峡大橋) to Kobe"
+    ]
   }
 ]
