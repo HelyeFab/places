@@ -37,8 +37,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Enable standalone mode for Docker deployment
-  output: 'standalone',
+  // Standalone is for the Docker image on the home server. Vercel builds its own
+  // serverless output and does not want a self-contained server bundle, so leave
+  // it off there — same codebase, two hosts.
+  output: process.env.VERCEL ? undefined : 'standalone',
 
   // Enable compression for better performance
   compress: true,

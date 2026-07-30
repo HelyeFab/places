@@ -8,15 +8,42 @@ import { google } from 'googleapis';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-function getDriveClient() {
-  const credentialsPath = process.env.GOOGLE_DRIVE_CREDENTIALS_PATH;
-  if (!credentialsPath) {
-    throw new Error('GOOGLE_DRIVE_CREDENTIALS_PATH is not set');
+/**
+ * Service-account credentials, from an env var first and a file second.
+ *
+ * The file path was the only option while this app ran solely in Docker on the
+ * home server, where a key can simply sit on disk next to the build. A serverless
+ * host has no such disk, and this repo is PUBLIC so the key can never be
+ * committed — hence GOOGLE_DRIVE_CREDENTIALS, holding the JSON itself.
+ *
+ * The file fallback is kept deliberately: the server's existing image and its
+ * deploy recipe keep working untouched, so this app is dual-homed rather than
+ * migrated.
+ *
+ * Accepts raw JSON or base64 — some dashboards mangle pasted multi-line values,
+ * and a key that silently arrives corrupted is worse than one that is absent.
+ */
+function loadCredentials(): Record<string, unknown> {
+  const inline = process.env.GOOGLE_DRIVE_CREDENTIALS;
+  if (inline) {
+    const text = inline.trimStart().startsWith('{')
+      ? inline
+      : Buffer.from(inline, 'base64').toString('utf8');
+    return JSON.parse(text);
   }
 
-  const credentials = JSON.parse(
-    readFileSync(join(process.cwd(), credentialsPath), 'utf8')
-  );
+  const credentialsPath = process.env.GOOGLE_DRIVE_CREDENTIALS_PATH;
+  if (!credentialsPath) {
+    throw new Error(
+      'No Drive credentials: set GOOGLE_DRIVE_CREDENTIALS (JSON or base64) ' +
+        'or GOOGLE_DRIVE_CREDENTIALS_PATH (file, server only)',
+    );
+  }
+  return JSON.parse(readFileSync(join(process.cwd(), credentialsPath), 'utf8'));
+}
+
+function getDriveClient() {
+  const credentials = loadCredentials();
 
   const auth = new google.auth.GoogleAuth({
     credentials,
