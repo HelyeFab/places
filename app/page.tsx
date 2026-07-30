@@ -6,6 +6,7 @@ import PageHeader from '@/components/PageHeader';
 import { useTranslations } from 'next-intl';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '@/lib/firebase';
+import { authUiHidden } from '@/lib/features';
 
 export default function Home() {
   const t = useTranslations('landing');
@@ -32,7 +33,7 @@ export default function Home() {
           </p>
 
           {/* Auth CTA - Only show if not authenticated */}
-          {!user && (
+          {!user && !authUiHidden && (
             <div className="flex justify-center mb-16">
               <AuthButton />
             </div>
@@ -83,22 +84,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Getting Started Section */}
-      <section className="py-12 sm:py-16 mb-12">
-        <div className="bg-gradient-to-r from-theme-accent-600 to-theme-accent-700 rounded-2xl p-8 sm:p-12 text-center text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            {t('gettingStarted.title')}
-          </h2>
-          <p className="text-lg sm:text-xl mb-8 opacity-90">
-            {t('gettingStarted.description')}
-          </p>
-          {!user && (
-            <div className="flex justify-center">
-              <AuthButton />
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Getting Started Section — the whole block is a sign-in pitch ("Want to
+          see more?" / "Sign in with Google to browse the full collection"), so it
+          goes entirely when the auth UI is hidden. Keeping the copy without the
+          button would tell visitors to do something the page offers no way to do. */}
+      {!authUiHidden && (
+        <section className="py-12 sm:py-16 mb-12">
+          <div className="bg-gradient-to-r from-theme-accent-600 to-theme-accent-700 rounded-2xl p-8 sm:p-12 text-center text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              {t('gettingStarted.title')}
+            </h2>
+            <p className="text-lg sm:text-xl mb-8 opacity-90">
+              {t('gettingStarted.description')}
+            </p>
+            {!user && (
+              <div className="flex justify-center">
+                <AuthButton />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
       </div>
     </>
   );

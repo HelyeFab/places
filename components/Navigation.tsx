@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Home, Image, FolderOpen, Calendar, MapPin } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import PaletteSelector from '@/components/theme/PaletteSelector';
+import { authUiHidden } from '@/lib/features';
 
 export default function Navigation() {
   const t = useTranslations('navigation');
@@ -90,7 +91,7 @@ export default function Navigation() {
                   }}
                   currentLocale={currentLocale}
                 />
-              ) : (
+              ) : authUiHidden ? null : (
                 <Link
                   href="/auth"
                   className="px-4 py-2 text-sm font-medium text-white bg-theme-accent-600 rounded-lg hover:bg-theme-accent-700 transition-colors shadow-sm"
